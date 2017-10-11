@@ -60,7 +60,7 @@
     import { mapGetters } from 'vuex'
     import bookItem from '../components/BookItem.vue'
     import { getHistory } from '../util/indexDB'
-    import { openBook, getRecentBooks } from '../BookOps'
+    import { openBook, getRecentBooks, idToBook } from '../BookOps'
     export default {
         computed: {
         },
@@ -101,7 +101,7 @@
                 })
             },
             async open(book) {
-                let url = book || await this.openBookFile()
+                let url = await idToBook(book._id) || await this.openBookFile()
                 let bookData = await openBook(url)
                 console.log(this.$store)
                 this.$store.commit("SET_BOOK",{book: bookData})

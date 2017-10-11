@@ -145,10 +145,9 @@ const saveToRecent = async (book) => {
 
 
 
-const readCover = async (epub, fileName) => {
-    window.a = epub
-    var imageUrl = epub.contents.cover || epub.contents.manifest.cover.url
-    var imageBlob = await epub.store.getUrl(imageUrl) || ""
+const readCover = async (epub) => {
+    var imageUrl = epub.contents.cover || (epub.contents.manifest.cover ? epub.contents.manifest.cover.url : false) || (epub.contents.manifest["cover-image"] ? epub.contents.manifest["cover-image"].url : false) || null
+    var imageBlob = imageUrl ? (await epub.store.getUrl(imageUrl) || "") : null
     return new Promise((resolve, reject) => {
         resolve(imageBlob)
     })
@@ -157,12 +156,12 @@ const readCover = async (epub, fileName) => {
 export const getBookMeta = async (url) => {
     return new Promise(async (resolve, reject) => {
         let epub = new ePub({ restore: true })
-        if (!this.url) {
+        if (!url) {
             throw new Error("没路径读个JB！")
         }
         epub.open(url)
         let meta = await epub.getMetadata()
-        meta.cover = await this.readCover(epub)
+        meta.cover = await readCover(epub)
         epub = null
         resolve(meta)
     })
@@ -170,5 +169,10 @@ export const getBookMeta = async (url) => {
 
 export const bookIdMeta = async (id) => {
     let book = await DB.books.get(id)
-    return await getBookMeta(book.url)
+    return getBookMeta(book.url)
+}
+
+export const idToBook = async (id) => {
+    let book = await DB.books.get(id)
+    return book.url
 }

@@ -1,7 +1,7 @@
 <template>
-    <div :class="{'book-hover':book.cover}" class="bookitem-container" @click="click">
-         <div v-if="book.cover" class="bookitem-cover" :style="'background-image:url('+ book.cover +')'"></div>
-         <div class="book-name" v-if="book.cover">{{book.title}}</div>
+    <div :class="{'book-hover':meta.cover}" class="bookitem-container" @click="click">
+         <div v-if="meta.cover" class="bookitem-cover" :style="'background-image:url('+ meta.cover +')'"></div>
+         <div class="book-name" v-if="meta.cover">{{meta.title || meta.bookTitle}}</div>
     </div>
 </template>
 <style>
@@ -48,15 +48,16 @@
     }
 </style>
 <script>
+import {bookIdMeta} from "../BookOps"
 export default {
     props:{
         book:{
-            default:undefined
+            default: undefined
         }
     },
     data(){
         return {
-            cover:undefined
+            meta: null
         }
     },
     methods:{
@@ -64,26 +65,11 @@ export default {
             this.$emit('click')
         }
     },
-    mounted(){
-        //Vue无法检测动态添加对象的变化，手动刷新DOM
-        var a = setInterval(()=>{            
-            if(this.book.title){
-                this.$set(this.book, this.book);
-                clearInterval(a)
-            }
-            console.log("time")
-        },100)
+    async mounted(){
+        this.meta = await bookIdMeta(this.book._id)
     },
     computed:{
-        bookName(){
-            if(this.book.title){
-                return this.book.title
-            }
-            else if(this.book.url){
-                var temp = this.book.url.split('\\')
-                return temp[temp.length - 1]
-            }
-        }
+
     }
 }
 </script>
