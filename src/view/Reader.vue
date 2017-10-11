@@ -61,7 +61,7 @@
             this.$store.state.reader.book.reader.setStyle("font-family","defaultText")
             this.$store.state.reader.book.reader.setStyle("font-size","22px")
             //如果没有用户定义的样式：
-            this.$store.state.reader.book.reader.setStyle("line-height","1.75em")
+            this.$store.state.reader.book.reader.setStyle("line-height","2.75em!important")
         },
         methods:{
             keyEvent(event){

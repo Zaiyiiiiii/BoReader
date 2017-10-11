@@ -7,12 +7,14 @@
     "electron-watch": "webpack --watch",
     "electron-server": "webpack --target electron-renderer --watch",
     "electron-client": "electron .",
+    "dev": "./node_modules/.bin/concurrently \"webpack --target electron-renderer --watch\" \"electron .\" -k",
     "web": "webpack --target web && webpack-dev-server --target web --hot --inline",
     "packager": "webpack && electron-packager . --platform=linux --electron-version=1.6.6  --overwrite"
   },
   "author": "",
   "license": "CNM",
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "css-loader": "^0.28.1",
     "electron": "^1.6.7",
     "electron-packager": "^8.7.0",
@@ -27,6 +29,12 @@
     "webpack-target-electron-renderer": "^0.4.0"
   },
   "dependencies": {
+    "jszip": "^3.1.4",
+    "localforage": "^1.5.2",
+    "pouchdb": "^6.3.4",
+    "pouchdb-browser": "^6.3.4",
+    "pouchdb-find": "^6.3.4",
+    "rsvp": "^4.7.0",
     "vue": "^2.3.4",
     "vue-router": "^2.7.0",
     "vuex": "^2.3.1"

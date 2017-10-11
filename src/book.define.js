@@ -1,12 +1,14 @@
 const book = {
-    config:{
+    config: {
         fontSize: 12,
-        lineHeight: 1.1
+        lineHeight: 1.1,
+        theme: ""
     },
-    url:"",
-    urlhash:"",
-    bookmark:[],
-    lastRead:""
+    url: "",  //PK
+    // urlhash:"",  // 用作_id
+    bookmark: [],
+    lastRead: "",
+    readPosition: ""
 }
 
 
@@ -15,8 +17,6 @@ const history = []
 const library = []
 
 const store = {
-    currentBook: ePub(),    
-
 }
 
 // 书架界面：初始化History和Lib
