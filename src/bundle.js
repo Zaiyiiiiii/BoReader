@@ -38087,10 +38087,10 @@ if (false) {(function () {
             })
         },
         async open(book) {
-            let url = await __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__BookOps__["c" /* idToBook */])(book._id) || await this.openBookFile()
+            let url = (book ? await __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__BookOps__["c" /* idToBook */])(book._id) : false) || await this.openBookFile()
             let bookData = await __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__BookOps__["d" /* openBook */])(url)
             console.log(this.$store)
-            this.$store.commit("SET_BOOK",{book: bookData})
+            this.$store.commit("SET_BOOK", { book: bookData })
             this.$router.push("reader")
         }
     }

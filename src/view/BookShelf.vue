@@ -101,10 +101,10 @@
                 })
             },
             async open(book) {
-                let url = await idToBook(book._id) || await this.openBookFile()
+                let url = (book ? await idToBook(book._id) : false) || await this.openBookFile()
                 let bookData = await openBook(url)
                 console.log(this.$store)
-                this.$store.commit("SET_BOOK",{book: bookData})
+                this.$store.commit("SET_BOOK", { book: bookData })
                 this.$router.push("reader")
             }
         }
