@@ -58,30 +58,26 @@
                 fontSize: 0
             }
         },
+        computed:{
+            reader(){
+                return this.$root.$children[0].$children[2].book
+            }
+        },
         components: {
             "hovershow-button": hoverShowButton
         },
         methods: {
             changeFontSize() {
-                this.$store.state.reader.book.reader.setStyle("font-size", this.fontSize + "px")
+                this.reader.setStyle("font-size", this.fontSize + "px")
+            },
+            initFontSize(){
+                let reader = this.$store.state.reader
+                return reader.book.config ? reader.book.config.fontSize : undefined || this.reader.renderer.doc.body.style.fontSize.split("px")[0] || 16//或返回设置中的默认值
             }
         },
         mounted() {
             //应该改成异步获取事件来修改值，暂时先循环检查
-            var initFontSize = () => {
-                console.log("get font size")
-                if (this.$store.state.reader.book.reader) {
-                    setTimeout(() => {
-                        this.fontSize = this.$store.state.reader.book.reader.renderer.doc.body.style.fontSize.split("px")[0]
-                    }, 300)
-                }
-                else {
-                    setTimeout(() => {
-                        initFontSize()
-                    }, 300)
-                }
-            }
-            initFontSize()
+            // this.fontSize = this.initFontSize()
         }
     }
 </script>

@@ -8,11 +8,15 @@ const book = {
     // urlhash:"",  // 用作_id
     bookmark: [],
     lastRead: "",
-    readPosition: ""
+    lastPosition: ""
 }
 
-
-const history = []
+const history = [
+    {
+        _id: "",
+        order: ""
+    }
+]
 
 const library = []
 

@@ -1,5 +1,5 @@
 const state = {
-    book:undefined
+    book: null
 }
 
 const getters = {

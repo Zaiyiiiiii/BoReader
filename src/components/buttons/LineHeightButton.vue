@@ -68,19 +68,19 @@
         mounted() {
             //应该改成异步获取事件来修改值，暂时先循环检查
             var initlineHeight = () => {
-                console.log("get font size")
-                if (this.$store.state.reader.book.reader) {
-                    setTimeout(() => {
-                        var lineHeight = this.$store.state.reader.book.reader.renderer.doc.body.style.lineHeight
-                        console.log(lineHeight)
-                        this.lineHeight = lineHeight.slice(0, lineHeight.length - 2)
-                    }, 300)
-                }
-                else {
-                    setTimeout(() => {
-                        initlineHeight()
-                    }, 300)
-                }
+                // console.log("get font size")
+                // if (this.$store.state.reader.book.reader) {
+                //     setTimeout(() => {
+                //         var lineHeight = this.$store.state.reader.book.reader.renderer.doc.body.style.lineHeight
+                //         console.log(lineHeight)
+                //         this.lineHeight = lineHeight.slice(0, lineHeight.length - 2)
+                //     }, 300)
+                // }
+                // else {
+                //     setTimeout(() => {
+                //         initlineHeight()
+                //     }, 300)
+                // }
             }
             initlineHeight()
         }
