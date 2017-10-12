@@ -1,5 +1,5 @@
 <template>
-    <base-button @click="exit" icon="../static/close-window.svg"></base-button>
+    <base-button @click="toLib" icon="../static/lib.svg"></base-button>
 </template>
 <script>
 import baseButton from '../StandardButton.vue'
@@ -8,9 +8,8 @@ export default {
         "base-button":baseButton
     },
     methods:{
-        exit(){
-            const { app } = require('electron').remote
-            app.quit()
+        toLib(){
+            this.$router.push("/")
         }
     }
 }

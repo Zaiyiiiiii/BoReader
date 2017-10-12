@@ -58,26 +58,21 @@
                 fontSize: 0
             }
         },
-        computed:{
-            reader(){
-                return this.$root.$children[0].$children[2].book
-            }
-        },
         components: {
             "hovershow-button": hoverShowButton
         },
         methods: {
             changeFontSize() {
-                this.reader.setStyle("font-size", this.fontSize + "px")
+                this.$store.commit("SET_STYLE",{styleName: "font-size", value: this.fontSize})
             },
-            initFontSize(){
-                let reader = this.$store.state.reader
-                return reader.book.config ? reader.book.config.fontSize : undefined || this.reader.renderer.doc.body.style.fontSize.split("px")[0] || 16//或返回设置中的默认值
+            async initFontSize(){
+                return await this.$store.dispatch("getStyles", {styleName:"font-size", comp:this})
             }
         },
-        mounted() {
+        async mounted() {
             //应该改成异步获取事件来修改值，暂时先循环检查
-            // this.fontSize = this.initFontSize()
+            this.fontSize = await this.initFontSize() || 16
+            this.changeFontSize()
         }
     }
 </script>

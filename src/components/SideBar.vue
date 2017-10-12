@@ -58,6 +58,7 @@
     import maxButton from './buttons/MaxButton.vue'
     import fontSizeButton from './buttons/FontSizeButton.vue'
     import lineHeightButton from './buttons/LineHeightButton.vue'
+    import toLib from './buttons/toLib.vue'
 
     export default {
         data() {
@@ -83,7 +84,8 @@
             "exit": exitButton,
             "max": maxButton,
             "font-size": fontSizeButton,
-            "line-height": lineHeightButton
+            "line-height": lineHeightButton,
+            "to-lib": toLib
         },
         mounted() {
             this.computeHeight()

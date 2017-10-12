@@ -60,7 +60,7 @@
     import { mapGetters } from 'vuex'
     import bookItem from '../components/BookItem.vue'
     import { getHistory } from '../util/indexDB'
-    import { openBook, getRecentBooks, idToBook } from '../BookOps'
+    import { openBook, getRecentBooks, idToBook, updateBook } from '../BookOps'
     export default {
         computed: {
         },
@@ -75,13 +75,6 @@
         },
         mounted: async function() {
             this.bookList = await getRecentBooks()
-            // var bookData = await getHistory()
-            // this.bookList = bookData.map(function(item){
-            // return new Book({url:item.url})
-            // })
-            // setTimeout(()=>{
-            //     this.bookList.push()
-            // },0)
         },
         methods: {
             openBookFile() {

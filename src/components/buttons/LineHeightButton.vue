@@ -62,27 +62,16 @@
         },
         methods: {
             changeLineHeight() {
-                this.$store.state.reader.book.reader.setStyle("line-height", this.lineHeight + "em")
+                this.$store.commit("SET_STYLE",{styleName: "line-height", value: this.lineHeight})
+            },
+            async initLineHeight(){
+                return await this.$store.dispatch("getStyles", {styleName:"line-height", comp:this})
             }
         },
-        mounted() {
+        async mounted() {
             //应该改成异步获取事件来修改值，暂时先循环检查
-            var initlineHeight = () => {
-                // console.log("get font size")
-                // if (this.$store.state.reader.book.reader) {
-                //     setTimeout(() => {
-                //         var lineHeight = this.$store.state.reader.book.reader.renderer.doc.body.style.lineHeight
-                //         console.log(lineHeight)
-                //         this.lineHeight = lineHeight.slice(0, lineHeight.length - 2)
-                //     }, 300)
-                // }
-                // else {
-                //     setTimeout(() => {
-                //         initlineHeight()
-                //     }, 300)
-                // }
-            }
-            initlineHeight()
+            this.lineHeight = await this.initLineHeight() || 1.8
+            this.changeLineHeight()
         }
     }
 </script>

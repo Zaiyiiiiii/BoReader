@@ -54,7 +54,6 @@ export const openBook = async (url) => {
     }
 
     // 添加到最近阅读过的书里
-    console.log(readBookData(url))
     let bookData = await readBookData(url)
     saveToRecent(bookData)
     return bookData
@@ -98,12 +97,10 @@ export const getRecentBooks = async (count) => {
         sort: [{ order: 'desc' }],
         limit: count || 10
     })
-    console.log(recentBooks)
     return recentBooks.docs
 }
 
 const saveToRecent = async (book) => {
-    console.log("B", book)
     let query = await DB.recent.find({
         selector: {
             _id: book._id
@@ -175,4 +172,12 @@ export const bookIdMeta = async (id) => {
 export const idToBook = async (id) => {
     let book = await DB.books.get(id)
     return book.url
+}
+
+export const updateBook = async (book) => {
+    let doc = await DB.books.get(book._id)
+    console.log(doc)
+    book._rev = doc._rev
+    DB.books.put(book)
+    console.log("书籍信息已更新")
 }

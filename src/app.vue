@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <transition name="apppage" mode="out-in">
-            <router-view></router-view>
+            <router-view ref="router"></router-view>
         </transition>
         <notice-box class="notice-box" :noticeList="noticeList"></notice-box>
         <sidebar class="app-sidebar"></sidebar>

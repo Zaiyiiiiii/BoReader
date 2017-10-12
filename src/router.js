@@ -9,7 +9,6 @@ export default new VueRouter({
         path:'',
         component: BookShelf,
         meta:{
-          keepAlive: true,
           sideBarButtons:[
           ]
         }
@@ -18,9 +17,8 @@ export default new VueRouter({
         path: '/reader',
         component: Reader,
         meta:{
-          keepAlive: true,
           sideBarButtons:[
-            "font-size","line-height"
+            "font-size","line-height","to-lib"
           ]
         }
       }

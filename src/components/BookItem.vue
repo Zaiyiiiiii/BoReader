@@ -1,5 +1,5 @@
 <template>
-    <div :class="{'book-hover':meta.cover}" class="bookitem-container" @click="click">
+    <div v-if="meta" :class="{'book-hover':meta.cover}" class="bookitem-container" @click="click">
          <div v-if="meta.cover" class="bookitem-cover" :style="'background-image:url('+ meta.cover +')'"></div>
          <div class="book-name" v-if="meta.cover">{{meta.title || meta.bookTitle}}</div>
     </div>

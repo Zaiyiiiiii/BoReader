@@ -2,7 +2,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports ={
+module.exports = {
   entry: [
     './src/index.js'
   ],
@@ -13,17 +13,20 @@ module.exports ={
   },
   module: {
     rules: [
-        {
-            test: /\.css$/,
-            use: [ 'style-loader', 'css-loader' ]
-        },
-        {
-            test: /\.vue$/,
-            use: 'vue-loader'
-        },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
     ]
   },
-  plugins:[
+  node: {
+    fs: 'empty'
+  },
+  plugins: [
     //   new webpack.HotModuleReplacementPlugin()
   ]
 };
