@@ -32,6 +32,7 @@ const actions = {
 const mutations = {
     SET_BOOK(state, { book }) {
         state.book = book
+        Object.assign(state.book,{})
     },
     SET_STYLE(state, { styleName, value }) {
         if(!state.book.config){
@@ -39,6 +40,9 @@ const mutations = {
         }
         state.book.config[styleName] = value
         Object.assign(state.book.config,{})
+    },
+    SET_LASTREAD(state, { cfi }) {
+        state.book.lastRead = cfi
     }
 }
 

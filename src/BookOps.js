@@ -4,6 +4,8 @@ import PouchDB from 'pouchdb-browser'
 import PouchDBFind from 'pouchdb-find'
 import MD5 from 'md5'
 
+export const defaultName = "Bo"
+
 PouchDB.plugin(PouchDBFind)
 
 export const DB = {

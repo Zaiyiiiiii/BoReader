@@ -8,7 +8,6 @@
                 <book-item class="shelf-recent-item" v-for="(book,index) in bookList" :book="book" @click="open(book)" :key="index"></book-item>
             </div>
         </section>
-        <router-link to="reader">fff</router-link>
     </div>
 </template>
 <style>

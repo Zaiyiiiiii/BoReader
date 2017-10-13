@@ -43,7 +43,7 @@
 </style>
 
 <script>
-    import { updateBook } from "../BookOps"
+    import { updateBook, getBookMeta } from "../BookOps"
     export default {
         components: {
 
@@ -70,7 +70,10 @@
             this.book.on("renderer:mousewheel", _this.keyEvent.bind(_this))
             document.addEventListener('keydown', this.keyEvent, false)
             document.addEventListener('mousewheel', this.keyEvent, false)
+
+            //初始化样式
             this.book.setStyle("font-family", "defaultText")
+            //初始化store监听
             this.$store.subscribe((mutation, state)=>{
                 if(this.$route.path == "/reader"){   
                     if(mutation.type == "SET_STYLE"){
@@ -78,8 +81,17 @@
                         this.setStyle(book)
                         updateBook(book)
                     }
+                    else if(mutation.type == "SET_LASTREAD"){
+                        let book = state.reader.book
+                        updateBook(book)
+                    }
                 }
             })
+            // 初始化阅读位置
+            this.book.on('renderer:locationChanged',(location)=>{
+                this.$store.commit("SET_LASTREAD",{cfi:location})
+            })
+
         },
         methods: {
             setStyle(book){
@@ -93,14 +105,16 @@
                 }
             },
             keyEvent(event) {
-                console.log("当前页", this.book)
                 if (event.keyCode == 39 || event.keyCode == 40 || event.wheelDelta < 0) {
-                    console.log("up")
+                    console.log("下")
                     this.pageNext()
                 }
                 else if (event.keyCode == 37 || event.keyCode == 38 || event.wheelDelta > 0) {
-                    console.log("down")
+                    console.log("上")
                     this.pagePrev()
+                }
+                if (event.keyCode == 144){
+                    console.log(this.book)
                 }
             },
             pageNext() {
@@ -113,9 +127,16 @@
             async loadBook() {
                 let bookData = this.$store.state.reader.book
                 if (bookData) {
-                    this.book = await new ePub(bookData.url)
-                    var reader = this.$el.querySelector('.reader')
-                    this.book.renderTo(reader)
+                    let cfi = bookData.lastRead
+                    this.book = await ePub(bookData.url)
+                    let reader = this.$el.querySelector('.reader')
+                    this.book.renderTo(reader).then(async ()=>{                        
+                        let meta = await getBookMeta(bookData.url)
+                        document.title = meta.bookTitle  
+                        if(cfi){
+                            this.book.gotoCfi(cfi)
+                        }
+                    })
                 }
                 else {
                     this.$router.push("/")

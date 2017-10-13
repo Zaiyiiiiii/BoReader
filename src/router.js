@@ -9,6 +9,7 @@ export default new VueRouter({
         path:'',
         component: BookShelf,
         meta:{
+          title: "请严肃一点。",
           sideBarButtons:[
           ]
         }
@@ -17,6 +18,7 @@ export default new VueRouter({
         path: '/reader',
         component: Reader,
         meta:{
+          title:"加载中...",
           sideBarButtons:[
             "font-size","line-height","to-lib"
           ]

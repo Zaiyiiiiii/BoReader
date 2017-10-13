@@ -5,11 +5,18 @@ import VueRouter from 'vue-router'
 import router from './router'
 import store from './store/index.js'
 import App from './app.vue'
-import { DB } from './BookOps'
+import { DB, defaultName } from './BookOps'
 
 DB.init()
 
 Vue.use(VueRouter)
+
+// 每次切换路由的时候，更改标题的名称
+router.beforeEach((to, from, next) => {
+  window.document.title = to.meta.title
+  next()
+})
+
 
 
 // 初始化UI字体
