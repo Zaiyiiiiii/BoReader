@@ -1,6 +1,7 @@
 {
   "name": "Bo",
   "version": "0.1.0",
+  "author": "",
   "description": "一个Epub电子书阅读器，就酱。",
   "main": "main.js",
   "scripts": {
@@ -10,7 +11,7 @@
     "dev": "./node_modules/.bin/concurrently \"webpack --target electron-renderer --watch\" \"electron .\" -k",
     "web": "webpack --target web && webpack-dev-server --target web --hot --inline",
     "packager": "webpack && electron-packager . --platform=linux --electron-version=1.6.6  --overwrite",
-    "packager-win": "webpack && electron-packager . --platform=win32 --arch=ia32",
+    "packager-win": ".\\node_modules\\.bin\\build --win",
     "packager-all": "webpack && electron-packager . --platform=all"
   },
   "author": "",
@@ -19,6 +20,7 @@
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.1",
     "electron": "^1.6.7",
+    "electron-builder": "^19.37.1",
     "electron-packager": "^8.7.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "is-electron-renderer": "^2.0.1",

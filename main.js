@@ -16,13 +16,13 @@ app.on('ready', () => {
 
 
   //添加VueDevtools
-  const extension = './src/vue-devtools'
-  BrowserWindow.addDevToolsExtension(extension)
+  // const extension = './src/vue-devtools'
+  // BrowserWindow.addDevToolsExtension(extension)
 
 
   mainWindow.loadURL(`file://${__dirname}/src/index.html`);
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
