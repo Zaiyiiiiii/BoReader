@@ -32,8 +32,4 @@
 >### *Staff*
 >>载颐 *（主要）*  
 >>Walkman A15 *（助兴）*  
-<<<<<<< HEAD
 >>CocaCola *（打杂&啦啦队）*  
-=======
->>CocaCola *（打杂）*  
->>>>>>> 33acc12023c9eb6c60bc60a862d4d320d893efc8
