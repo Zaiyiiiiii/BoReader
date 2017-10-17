@@ -8,18 +8,17 @@
     "electron-watch": "webpack --watch",
     "electron-server": "webpack --target electron-renderer --watch",
     "electron-client": "electron .",
-    "dev": "./node_modules/.bin/concurrently \"webpack --target electron-renderer --watch\" \"electron .\" -k",
+    "dev": "./node_modules/.bin/concurrently \"webpack --target electron-renderer --watch\" \".\\node_modules\\.bin\\electron .\" -k",
     "web": "webpack --target web && webpack-dev-server --target web --hot --inline",
     "packager": "webpack && electron-packager . --platform=linux --electron-version=1.6.6  --overwrite",
-    "packager-win": ".\\node_modules\\.bin\\build --win",
-    "packager-all": "webpack && electron-packager . --platform=all"
+    "build-win": ".\\node_modules\\.bin\\build --win",
+    "packager-win": "webpack --target electron-renderer && set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ && electron-packager . --platform=win32 --overwrite --ignore=node_modules"
   },
-  "author": "",
   "license": "CNM",
   "devDependencies": {
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.1",
-    "electron": "^1.6.7",
+    "electron": "^1.7.9",
     "electron-builder": "^19.37.1",
     "electron-packager": "^8.7.2",
     "extract-text-webpack-plugin": "^2.1.0",
@@ -33,12 +32,11 @@
     "webpack-target-electron-renderer": "^0.4.0"
   },
   "dependencies": {
-    "jszip": "^3.1.4",
-    "localforage": "^1.5.2",
+    "epub.js": "^0.2.15",
+    "jszip": "^2.5.0",
     "md5": "^2.2.1",
     "pouchdb-browser": "^6.3.4",
     "pouchdb-find": "^6.3.4",
-    "rsvp": "^4.7.0",
     "vue": "^2.3.4",
     "vue-router": "^2.7.0",
     "vuex": "^2.3.1"

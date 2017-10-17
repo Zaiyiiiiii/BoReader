@@ -2,3 +2,4 @@ node_modules/
 dist/
 npm-debug.log*
 src/bundle.js*
+Bo-win32-x64/

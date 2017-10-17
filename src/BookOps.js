@@ -154,7 +154,7 @@ const readCover = async (epub) => {
 
 export const getBookMeta = async (url) => {
     return new Promise(async (resolve, reject) => {
-        let epub = new ePub({ restore: true })
+        let epub = ePub({ restore: true })
         if (!url) {
             throw new Error("没路径读个JB！")
         }

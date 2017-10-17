@@ -7,7 +7,7 @@ const BrowserWindow = electron.BrowserWindow;
 let mainWindow = null;
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
+    app.quit();
 });
 
 
@@ -22,7 +22,7 @@ app.on('ready', () => {
 
   mainWindow.loadURL(`file://${__dirname}/src/index.html`);
 
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;
