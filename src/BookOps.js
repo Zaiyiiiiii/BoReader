@@ -18,12 +18,7 @@ export const DB = {
                 fields: ['url']
             }
         }).then(function (result) {
-            if (result.result == "exists") {
-                console.log("已初始化数据库")
-            }
-            else {
-                console.log(result)
-            }
+            console.log(result.result == "exists" ? "已初始化数据库" : result)
         }).catch(function (err) {
             console.log(err)
         });
@@ -33,12 +28,8 @@ export const DB = {
                 fields: ['order']
             }
         }).then(function (result) {
-            if (result.result == "exists") {
-                console.log("已初始化最近阅读信息")
-            }
-            else {
-                console.log(result)
-            }
+            console.log(result.result == "exists" ? "已初始化最近阅读信息" : result)
+
         }).catch(function (err) {
             console.log(err)
         });
@@ -133,7 +124,6 @@ const saveToRecent = async (book) => {
         }
     }
     else {
-        var doc = await DB.books.get(book._id)
         var response = await DB.recent.put({
             _id: book._id,
             order: maxId + 1
