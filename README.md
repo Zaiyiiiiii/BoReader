@@ -22,8 +22,8 @@
 
 
 >### *Special Thanks To* <sup>（注：排名不分前后）</sup>
->>Epub.js    
->>Electron  
+>>Epub.js *（你等着，早晚把你换了，你以为出了0.3你就好用了吗？)*    
+>>Electron  
 >>Vue  
 >>图标的作者们 *（来自IconFont）*
 >>
