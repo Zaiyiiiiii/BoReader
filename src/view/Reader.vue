@@ -34,7 +34,8 @@
         height: 80%;
         flex-shrink: 0;
         -webkit-app-region: no-drag;
-        font-family: "思源宋体";
+        font-family: "default";
+        user-select: none;
     }
 
     .reader>* {
@@ -76,8 +77,9 @@
             this.book.renderTo(reader)           
 
             //初始化按键事件，在对应方法里处理
-            this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
-            this.book.on("renderer:mousewheel", _this.keyEvent.bind(_this))
+            //准备改为主进程监听
+            // this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
+            // this.book.on("renderer:mousewheel", _this.keyEvent.bind(_this))
             document.addEventListener('keydown', this.keyEvent, false)
             document.addEventListener('mousewheel', this.keyEvent, false)
 

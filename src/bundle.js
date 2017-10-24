@@ -19435,7 +19435,7 @@ exports = module.exports = __webpack_require__(/*! ../../~/css-loader/lib/css-ba
 
 
 // module
-exports.push([module.i, "\n.reader-container {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 0 6em;\n    box-sizing: border-box;\n}\n@media screen and (max-width: 580px) {\n.reader-container {\n        padding: 0 2em;\n}\n}\n\n/* .buttonlist{\n            flex: 0;\n            bottom: 2em;\n            left: 2em;\n            -webkit-app-region: no-drag;\n        } */\n.reader {\n    max-width: 100%;\n    width: 1400px;\n    height: 80%;\n    flex-shrink: 0;\n    -webkit-app-region: no-drag;\n    font-family: \"\\601D\\6E90\\5B8B\\4F53\";\n}\n.reader>* {\n    pointer-events: none;\n}\n", ""]);
+exports.push([module.i, "\n.reader-container {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 0 6em;\n    box-sizing: border-box;\n}\n@media screen and (max-width: 580px) {\n.reader-container {\n        padding: 0 2em;\n}\n}\n\n/* .buttonlist{\n            flex: 0;\n            bottom: 2em;\n            left: 2em;\n            -webkit-app-region: no-drag;\n        } */\n.reader {\n    max-width: 100%;\n    width: 1400px;\n    height: 80%;\n    flex-shrink: 0;\n    -webkit-app-region: no-drag;\n    font-family: \"default\";\n    user-select: none;\n}\n.reader>* {\n    pointer-events: none;\n}\n", ""]);
 
 // exports
 
@@ -41203,6 +41203,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -41237,8 +41238,9 @@ if (false) {(function () {
         this.book.renderTo(reader)           
 
         //初始化按键事件，在对应方法里处理
-        this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
-        this.book.on("renderer:mousewheel", _this.keyEvent.bind(_this))
+        //准备改为主进程监听
+        // this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
+        // this.book.on("renderer:mousewheel", _this.keyEvent.bind(_this))
         document.addEventListener('keydown', this.keyEvent, false)
         document.addEventListener('mousewheel', this.keyEvent, false)
 
