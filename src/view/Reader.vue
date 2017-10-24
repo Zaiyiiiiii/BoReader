@@ -62,17 +62,25 @@
         async mounted() {
             var _this = this
             await this.loadBook()
+
+            //初始化样式
+            this.book.setStyle("font-family", "defaultText")
+
             if(this.book){
                 this.setStyle(this.$store.state.reader.book)
             }
+
+            //开始渲染
+            
+            let reader = this.$el.querySelector('.reader')
+            this.book.renderTo(reader)           
+
             //初始化按键事件，在对应方法里处理
             this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
             this.book.on("renderer:mousewheel", _this.keyEvent.bind(_this))
             document.addEventListener('keydown', this.keyEvent, false)
             document.addEventListener('mousewheel', this.keyEvent, false)
 
-            //初始化样式
-            this.book.setStyle("font-family", "defaultText")
             //初始化store监听
             this.$store.subscribe((mutation, state)=>{
                 if(this.$route.path == "/reader"){   
@@ -87,7 +95,7 @@
                     }
                 }
             })
-            // 初始化阅读位置
+            // 初始化阅读位置自动保存
             this.book.on('renderer:locationChanged',(location)=>{
                 this.$store.commit("SET_LASTREAD",{cfi:location})
             })
@@ -128,15 +136,12 @@
                 let bookData = this.$store.state.reader.book
                 if (bookData) {
                     let cfi = bookData.lastRead
-                    this.book = await ePub(bookData.url)
-                    let reader = this.$el.querySelector('.reader')
-                    this.book.renderTo(reader).then(async ()=>{                        
-                        let meta = await getBookMeta(bookData.url)
-                        document.title = meta.bookTitle  
-                        if(cfi){
-                            this.book.gotoCfi(cfi)
-                        }
-                    })
+                    this.book = ePub(bookData.url)   
+                    let meta = await getBookMeta(bookData.url)
+                    document.title = meta.bookTitle  
+                    if(cfi){
+                        this.book.gotoCfi(cfi)
+                    }     
                 }
                 else {
                     this.$router.push("/")

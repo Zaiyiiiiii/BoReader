@@ -59,6 +59,7 @@ EPUBJS.Hooks.register("beforeChapterDisplay").smartimages = function (callback, 
 }
 
 var font = new FontFace("defaultText", "url(../static/fonts/SourceHanSerifSC-Regular.otf)", {})
+	font.load()
 
 EPUBJS.Hooks.register("beforeChapterDisplay").addFonts = function (callback, renderer) {
 	font.load().then(function (loadedFace) {

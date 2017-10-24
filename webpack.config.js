@@ -1,6 +1,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   entry: [
@@ -27,6 +28,7 @@ module.exports = {
     fs: 'empty'
   },
   plugins: [
-    //   new webpack.HotModuleReplacementPlugin()
+      // new webpack.HotModuleReplacementPlugin()
+      new DashboardPlugin()
   ]
 };

@@ -5,14 +5,9 @@
   "description": "一个Epub电子书阅读器，就酱。",
   "main": "main.js",
   "scripts": {
-    "electron-watch": "webpack --watch",
-    "electron-server": "webpack --target electron-renderer --watch",
-    "electron-client": "electron .",
     "dev": "./node_modules/.bin/concurrently \"webpack --target electron-renderer --watch\" \".\\node_modules\\.bin\\electron .\" -k",
     "web": "webpack --target web && webpack-dev-server --target web --hot --inline",
-    "packager": "webpack && electron-packager . --platform=linux --electron-version=1.6.6  --overwrite",
-    "build-win": ".\\node_modules\\.bin\\build --win",
-    "packager-win": "webpack --target electron-renderer && set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ && electron-packager . --platform=win32 --overwrite --ignore=node_modules"
+    "packager-win": "webpack --target electron-renderer && set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ && electron-packager . --out=./dist --platform=win32 --overwrite --asar"
   },
   "license": "CNM",
   "devDependencies": {
@@ -36,10 +31,15 @@
     "epub.js": "^0.2.15",
     "jszip": "^2.5.0",
     "md5": "^2.2.1",
+    "node-gyp": "^3.6.2",
     "pouchdb-browser": "^6.3.4",
     "pouchdb-find": "^6.3.4",
     "vue": "^2.3.4",
     "vue-router": "^2.7.0",
     "vuex": "^2.3.1"
+  },
+  "build": {
+    "win": {},
+    "mac": {}
   }
 }
