@@ -36,6 +36,7 @@
         -webkit-app-region: no-drag;
         font-family: "default";
         user-select: none;
+        pointer-events: none;
     }
 
     .reader>* {
@@ -45,6 +46,8 @@
 
 <script>
     import { updateBook, getBookMeta } from "../BookOps"
+    import Rx from '@reactivex/rxjs'
+    // import { do } from '@reactivex/rxjs/operator/do'
     export default {
         components: {
 
@@ -56,7 +59,6 @@
         },
         beforeDestroy(){
             document.removeEventListener('keydown', this.keyEvent, false)
-            document.removeEventListener('mousewheel', this.keyEvent, false)
             this.book = null
             this.$store._subscriber = []
         },
@@ -77,11 +79,11 @@
             this.book.renderTo(reader)           
 
             //初始化按键事件，在对应方法里处理
-            //准备改为主进程监听
-            // this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
-            // this.book.on("renderer:mousewheel", _this.keyEvent.bind(_this))
-            document.addEventListener('keydown', this.keyEvent, false)
-            document.addEventListener('mousewheel', this.keyEvent, false)
+            //准备把按键改为主进程监听
+
+            this.$el.addEventListener('wheel', this.keyEvent, false)
+            this.$el.addEventListener('keydown', this.keyEvent, false)
+            this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
 
             //初始化store监听
             this.$store.subscribe((mutation, state)=>{
@@ -97,6 +99,13 @@
                     }
                 }
             })
+            
+            
+            const boundSomeFunction = Rx.Observable.bindCallback(this.$store.subscribe)
+            boundSomeFunction.call(this.$store)
+            .do((mut) => console.log('I was sync!',mut))
+
+
             // 初始化阅读位置自动保存
             this.book.on('renderer:locationChanged',(location)=>{
                 this.$store.commit("SET_LASTREAD",{cfi:location})
@@ -115,16 +124,13 @@
                 }
             },
             keyEvent(event) {
-                if (event.keyCode == 39 || event.keyCode == 40 || event.wheelDelta < 0) {
+                if (event.key == "ArrowDown" || event.key == "ArrowRight" || event.deltaX > 0 || event.deltaY > 0) {
                     console.log("下")
                     this.pageNext()
                 }
-                else if (event.keyCode == 37 || event.keyCode == 38 || event.wheelDelta > 0) {
+                else if (event.key == "ArrowUp" || event.key == "ArrowLeft" || event.deltaX < 0 || event.deltaY < 0) {
                     console.log("上")
                     this.pagePrev()
-                }
-                if (event.keyCode == 144){
-                    console.log(this.book)
                 }
             },
             pageNext() {
