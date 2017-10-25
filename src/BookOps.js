@@ -168,8 +168,7 @@ export const idToBook = async (id) => {
 
 export const updateBook = async (book) => {
     let doc = await DB.books.get(book._id)
-    console.log(doc)
     book._rev = doc._rev
     DB.books.put(book)
-    console.log("书籍信息已更新")
+    console.log("书籍信息已更新",doc)
 }

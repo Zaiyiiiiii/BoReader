@@ -47,7 +47,9 @@
 <script>
     import { updateBook, getBookMeta } from "../BookOps"
     import Rx from '@reactivex/rxjs'
+    import _ from 'lodash'    
     // import { do } from '@reactivex/rxjs/operator/do'
+
     export default {
         components: {
 
@@ -60,7 +62,8 @@
         beforeDestroy(){
             document.removeEventListener('keydown', this.keyEvent, false)
             this.book = null
-            this.$store._subscriber = []
+            //  关闭监听事件。。。
+            this.$store._subscribers.pop()
         },
         async mounted() {
             var _this = this
@@ -86,7 +89,32 @@
             this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
 
             //初始化store监听
-            this.$store.subscribe((mutation, state)=>{
+            this.$store.subscribe((mutation,state)=>{
+                var storeChange = new CustomEvent('storeChange',{detail: {mutation: mutation,state: state}})
+                this.$el.dispatchEvent(storeChange)
+            })
+
+            //。。。生成事件作为源
+            //加上消抖，手速太快的时候写入DB会有冲突，控制台一篇红色。。。
+
+            var storeHandler = Rx.Observable.fromEvent(this.$el, 'storeChange')
+            // .distinctUntilChanged((pre,cur)=> _.isEqual(pre.detail.state.reader.book, cur.detail.state.reader.book))
+            .throttleTime(100)
+            .subscribe((event)=>{
+                let state = event.detail.state
+                let mutation = event.detail.mutation
+                this.syncStore(mutation, state)
+            })            
+
+
+            // 初始化阅读位置自动保存
+            this.book.on('renderer:locationChanged',(location)=>{
+                this.$store.commit("SET_LASTREAD",{cfi:location})
+            })
+
+        },
+        methods: {
+            syncStore(mutation, state){
                 if(this.$route.path == "/reader"){   
                     if(mutation.type == "SET_STYLE"){
                         let book = state.reader.book
@@ -98,21 +126,7 @@
                         updateBook(book)
                     }
                 }
-            })
-            
-            
-            const boundSomeFunction = Rx.Observable.bindCallback(this.$store.subscribe)
-            boundSomeFunction.call(this.$store)
-            .do((mut) => console.log('I was sync!',mut))
-
-
-            // 初始化阅读位置自动保存
-            this.book.on('renderer:locationChanged',(location)=>{
-                this.$store.commit("SET_LASTREAD",{cfi:location})
-            })
-
-        },
-        methods: {
+            },
             setStyle(book){
                 if(book.config && this.book){            
                     if(book.config["font-size"]){
