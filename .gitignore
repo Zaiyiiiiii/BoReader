@@ -4,4 +4,4 @@ npm-debug.log*
 src/bundle.js*
 Bo-win32-x64/
 Bo-darwin-x64/
-package-lock.json
+package-lock.json*
