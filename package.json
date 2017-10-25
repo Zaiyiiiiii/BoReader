@@ -31,6 +31,7 @@
     "@reactivex/rxjs": "^5.5.1",
     "epub.js": "^0.2.15",
     "jszip": "^2.5.0",
+    "lodash": "^4.17.4",
     "md5": "^2.2.1",
     "node-gyp": "^3.6.2",
     "pouchdb-browser": "^6.3.4",
