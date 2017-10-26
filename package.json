@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "./node_modules/.bin/concurrently \"webpack --target electron-renderer --watch\" \".\\node_modules\\.bin\\electron .\" -k",
     "web": "webpack --target web && webpack-dev-server --target web --hot --inline",
-    "packager-win": "webpack --target electron-renderer && set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ && electron-packager . --out=./dist --platform=win32 --overwrite --asar"
+    "packager-win": "webpack --target electron-renderer && set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ && electron-packager . --out=./dist --icon=./static/Bo.ico --platform=win32 --overwrite --asar"
   },
   "license": "CNM",
   "devDependencies": {
