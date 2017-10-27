@@ -42,6 +42,10 @@
     .reader>* {
         pointer-events: none;
     }
+    
+    .reader>* {
+        pointer-events: none;
+    }
 </style>
 
 <script>
@@ -71,6 +75,7 @@
 
             //初始化样式
             this.book.setStyle("font-family", "defaultText")
+            this.book.setStyle("background-color", "transparent")
 
             if(this.book){
                 this.setStyle(this.$store.state.reader.book)

@@ -1,7 +1,7 @@
 node_modules/
 dist/
 npm-debug.log*
-src/bundle.js*
+src/bundle*
 Bo-win32-x64/
 Bo-darwin-x64/
 package-lock.json*
