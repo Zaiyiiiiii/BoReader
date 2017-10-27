@@ -44017,7 +44017,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.bookitem-container{\n    width: 111px;\n    height: 156px;\n    position: relative;\n}\n.bookitem-cover{\n    position: relative;\n    z-index: 1;\n    transition: transform 0.5s;\n    width: 100%;\n    height: 100%;\n    background-size: cover;\n    box-shadow: 1px 2px 3px 1px rgba(110, 110, 90, 0.1);\n}\n.book-hover:hover > .bookitem-cover{\n    transform: translateY(-1em)\n}\n.book-hover:hover > .book-name{\n    opacity: 1;\n}\n.book-name{\n    color:rgba(153, 153, 153, 1);\n    transition: opacity 0.5s;\n    position: absolute;\n    opacity: 0;\n    bottom: -2em;\n    line-height: 1.25em;\n    height: 2.5em;\n    font-size: 14px;\n    width: 100%;\n    text-align: center;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-box-orient: vertical; \n    -webkit-box-align: center;\n    -webkit-line-clamp: 2;\n    word-break: break-all;\n    font-family: \"\\601D\\6E90\\9ED1\\4F53\";\n    font-weight: lighter;\n}\n", ""]);
+exports.push([module.i, "\n.bookitem-container{\n    width: 111px;\n    height: 156px;\n    position: relative;\n}\n.bookitem-cover{\n    position: relative;\n    z-index: 1;\n    transition: transform 0.5s;\n    width: 100%;\n    height: 100%;\n    background-size: cover;\n    box-shadow: 1px 2px 3px 1px rgba(110, 110, 90, 0.1);\n}\n.book-hover:hover > .bookitem-cover{\n    transform: translateY(-1em)\n}\n.book-hover:hover > .book-name{\n    opacity: 1;\n}\n.bookitem-no-cover{\n    box-sizing: border-box;\n    font-size: 22px;\n    padding: 1em 0 1em 1em;\n    background: -webkit-linear-gradient(left, #f1f1f2 0%, #fffbf6 100%);\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    font-weight: bolder;\n    text-transform: capitalize;\n    overflow: visible;\n}\n.bookitem-cover-title{       \n    width: 100%;\n    height: 100%; \n    overflow: visible;\n    background-image:  linear-gradient(to left, rgba(253, 13, 13, 0), rgba(103, 103, 103, 0.41));\n    color: transparent;\n    font-family: \"default\";\n    -webkit-background-clip: text;\n    background-clip: text;\n}\n.book-name{\n    color:rgba(153, 153, 153, 1);\n    transition: opacity 0.5s;\n    position: absolute;\n    display: inline-block;\n    opacity: 0;\n    bottom: -2em;\n    line-height: 1.25em;\n    height: 2.5em;\n    font-size: 14px;\n    width: 100%;\n    text-align: center;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    -webkit-box-orient: vertical; \n    -webkit-box-align: center;\n    /* -webkit-line-clamp: 1; */\n    /* word-break: break-all; */\n    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;\n    font-weight: lighter;\n}\n", ""]);
 
 // exports
 
@@ -44059,7 +44059,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.reader-container {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 0 6em;\n    box-sizing: border-box;\n}\n@media screen and (max-width: 580px) {\n.reader-container {\n        padding: 0 2em;\n}\n}\n\n/* .buttonlist{\n            flex: 0;\n            bottom: 2em;\n            left: 2em;\n            -webkit-app-region: no-drag;\n        } */\n.reader {\n    max-width: 100%;\n    width: 1400px;\n    height: 80%;\n    flex-shrink: 0;\n    -webkit-app-region: no-drag;\n    font-family: \"default\";\n    user-select: none;\n    pointer-events: none;\n}\n.reader>* {\n    pointer-events: none;\n}\n", ""]);
+exports.push([module.i, "\n.reader-container {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 0 6em;\n    box-sizing: border-box;\n}\n@media screen and (max-width: 580px) {\n.reader-container {\n        padding: 0 2em;\n}\n}\n\n/* .buttonlist{\n            flex: 0;\n            bottom: 2em;\n            left: 2em;\n            -webkit-app-region: no-drag;\n        } */\n.reader {\n    max-width: 100%;\n    width: 1400px;\n    height: 80%;\n    flex-shrink: 0;\n    -webkit-app-region: no-drag;\n    font-family: \"default\";\n    user-select: none;\n    pointer-events: none;\n}\n.reader>* {\n    pointer-events: none;\n}\n.reader>* {\n    pointer-events: none;\n}\n", ""]);
 
 // exports
 
@@ -81792,6 +81792,31 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -82536,6 +82561,10 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -82560,9 +82589,11 @@ if (false) {(function () {
     async mounted() {
         var _this = this
         await this.loadBook()
+        console.log(this.book)
 
         //初始化样式
         this.book.setStyle("font-family", "defaultText")
+        this.book.setStyle("background", "none!important")
 
         if(this.book){
             this.setStyle(this.$store.state.reader.book)
@@ -82990,7 +83021,7 @@ var render = function() {
         "div",
         {
           staticClass: "bookitem-container",
-          class: { "book-hover": _vm.meta.cover },
+          class: { "book-hover": true },
           on: { click: _vm.click }
         },
         [
@@ -82999,13 +83030,15 @@ var render = function() {
                 staticClass: "bookitem-cover",
                 style: "background-image:url(" + _vm.meta.cover + ")"
               })
-            : _vm._e(),
+            : _c("div", { staticClass: "bookitem-cover bookitem-no-cover" }, [
+                _c("div", { staticClass: "bookitem-cover-title" }, [
+                  _vm._v(_vm._s(_vm.meta.bookTitle))
+                ])
+              ]),
           _vm._v(" "),
-          _vm.meta.cover
-            ? _c("div", { staticClass: "book-name" }, [
-                _vm._v(_vm._s(_vm.meta.title || _vm.meta.bookTitle))
-              ])
-            : _vm._e()
+          _c("div", { staticClass: "book-name" }, [
+            _vm._v(_vm._s(_vm.meta.title || _vm.meta.bookTitle))
+          ])
         ]
       )
     : _vm._e()

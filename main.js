@@ -16,9 +16,9 @@ app.on('ready', () => {
 
 
   //添加VueDevtools
-  // const extension = `${__dirname}/node_modules/vue-devtools/vender`
-  // BrowserWindow.addDevToolsExtension(extension)
-  // mainWindow.webContents.openDevTools();
+  const extension = `${__dirname}/node_modules/vue-devtools/vender`
+  BrowserWindow.addDevToolsExtension(extension)
+  mainWindow.webContents.openDevTools();
 
 
   mainWindow.loadURL(`file://${__dirname}/src/index.html`);

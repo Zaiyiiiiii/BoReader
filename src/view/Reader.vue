@@ -72,10 +72,11 @@
         async mounted() {
             var _this = this
             await this.loadBook()
+            console.log(this.book)
 
             //初始化样式
             this.book.setStyle("font-family", "defaultText")
-            this.book.setStyle("background-color", "transparent")
+            this.book.setStyle("background", "none!important")
 
             if(this.book){
                 this.setStyle(this.$store.state.reader.book)
