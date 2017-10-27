@@ -1,6 +1,9 @@
 # 私家阅读器 - Bo
 暂时就叫Bo吧（不是波霸）。
 
+
+<div style="width:300px;height:300px;background-image:url('https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/Bo.png')"></div>
+
 ## 这是个啥玩意
 因为市面上没有用的特别舒服的电子书阅读器，想来想去，还是决定自己写一个，虽然说不见得写的有多好，甚至不见得能完成，但是毕竟是自己写的，功能和界面是想怎么来就怎么来，用的应该还是很舒服的，那就这么定了！
 
@@ -35,3 +38,15 @@
 >>载颐 *（主要）*  
 >>Walkman A15 *（助兴）*  
 >>CocaCola *（打杂&啦啦队）*  
+
+
+## 没图你说个鸡巴
+
+>*来来来，别吵吵了，发两张！*    
+>*现在还是用着都特么费劲的版本，换成面包的说法应该是，小麦还在田地里播种，还没有磨成粉，离烘焙出炉还有些日子，不过还是那句话，信我，面包总会有的！*
+
+![嗯啊](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/1.png)
+
+![嗯啊](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/2.png)
+
+![嗯啊](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/3.png)
