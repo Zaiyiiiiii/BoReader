@@ -1,14 +1,9 @@
 
-<div style="
-    width: 200px;
-    height:200px;
-    background-image:url(https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/Bo.png);
-    background-size: cover;
-"></div>
 
 # 私家阅读器 - Bo
-暂时就叫Bo吧（不是波霸）。
+暂时就叫Bo吧（不是波霸）。  
 
+<img width=150 height=150 src="https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/Bo.png">
 
 ## 这是个啥玩意
 因为市面上没有用的特别舒服的电子书阅读器，想来想去，还是决定自己写一个，虽然说不见得写的有多好，甚至不见得能完成，但是毕竟是自己写的，功能和界面是想怎么来就怎么来，用的应该还是很舒服的，那就这么定了！
