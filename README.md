@@ -46,8 +46,8 @@
 >*来来来，别吵吵了，发两张！*    
 >*现在还是用着都特么费劲的版本，换成面包的说法应该是，小麦还在田地里播种，还没有磨成粉，离烘焙出炉还有些日子，不过还是那句话，信我，面包总会有的！*
 
-![嗯啊](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/1.png)
+![十分简陋，十分寒颤](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/1.png)
 
-![嗯啊](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/2.png)
+![但是简陋中透着一点简洁](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/2.png)
 
-![嗯啊](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/3.png)
+![简洁，简约而不简单，张弛有度](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/3.png)
