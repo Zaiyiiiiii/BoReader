@@ -36,13 +36,8 @@
         -webkit-app-region: no-drag;
         font-family: "default";
         user-select: none;
-        pointer-events: none;
     }
 
-    .reader>* {
-        pointer-events: none;
-    }
-    
     .reader>* {
         pointer-events: none;
     }
@@ -91,7 +86,7 @@
             //准备把按键改为主进程监听
 
             this.$el.addEventListener('wheel', this.keyEvent, false)
-            this.$el.addEventListener('keydown', this.keyEvent, false)
+            document.addEventListener('keydown', this.keyEvent, false)
             this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
 
             //初始化store监听

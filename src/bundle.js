@@ -44059,7 +44059,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.reader-container {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 0 6em;\n    box-sizing: border-box;\n}\n@media screen and (max-width: 580px) {\n.reader-container {\n        padding: 0 2em;\n}\n}\n\n/* .buttonlist{\n            flex: 0;\n            bottom: 2em;\n            left: 2em;\n            -webkit-app-region: no-drag;\n        } */\n.reader {\n    max-width: 100%;\n    width: 1400px;\n    height: 80%;\n    flex-shrink: 0;\n    -webkit-app-region: no-drag;\n    font-family: \"default\";\n    user-select: none;\n    pointer-events: none;\n}\n.reader>* {\n    pointer-events: none;\n}\n.reader>* {\n    pointer-events: none;\n}\n", ""]);
+exports.push([module.i, "\n.reader-container {\n    width: 100%;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    padding: 0 6em;\n    box-sizing: border-box;\n}\n@media screen and (max-width: 580px) {\n.reader-container {\n        padding: 0 2em;\n}\n}\n\n/* .buttonlist{\n            flex: 0;\n            bottom: 2em;\n            left: 2em;\n            -webkit-app-region: no-drag;\n        } */\n.reader {\n    max-width: 100%;\n    width: 1400px;\n    height: 80%;\n    flex-shrink: 0;\n    -webkit-app-region: no-drag;\n    font-family: \"default\";\n    user-select: none;\n}\n.reader>* {\n    pointer-events: none;\n}\n", ""]);
 
 // exports
 
@@ -82560,11 +82560,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -82608,7 +82603,7 @@ if (false) {(function () {
         //准备把按键改为主进程监听
 
         this.$el.addEventListener('wheel', this.keyEvent, false)
-        this.$el.addEventListener('keydown', this.keyEvent, false)
+        document.addEventListener('keydown', this.keyEvent, false)
         this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
 
         //初始化store监听
