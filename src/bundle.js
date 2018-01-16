@@ -43919,7 +43919,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.hovershow-button:hover{\r\n    background: transparent!important;\n}\n.hovershow-button:hover > .hovershow-content{\r\n    opacity: 1;\r\n    transition: all 0.2s;\r\n    pointer-events: auto;\r\n    background: linear-gradient(to right, rgba(250, 250, 250, 0), rgba(250, 250, 250, 0.6) 20%, rgba(250, 250, 250, 0.9) 65%, rgba(250, 250, 250, 1));\n}\n.hovershow-content{\r\n    opacity: 0;\r\n    pointer-events: none;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    padding-right: 20px;\r\n    height: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    overflow-y: visible;\n}\r\n", ""]);
+exports.push([module.i, "\n.hovershow-button:hover {\n    background: transparent !important;\n}\n.hovershow-button:hover > .hovershow-content {\n    opacity: 1;\n    transition: all 0.2s;\n    pointer-events: auto;\n    background: linear-gradient(\n        to right,\n        rgba(250, 250, 250, 0),\n        rgba(250, 250, 250, 0.6) 20%,\n        rgba(250, 250, 250, 0.9) 65%,\n        rgba(250, 250, 250, 1)\n    );\n}\n.hovershow-content {\n    opacity: 0;\n    pointer-events: none;\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding-right: 20px;\n    height: 100%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    overflow-y: visible;\n}\n", ""]);
 
 // exports
 
@@ -81882,26 +81882,32 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    props:{
-        icon:{
-            default:""
+    props: {
+        icon: {
+            default: ""
         }
     },
-    components:{
-        "base-button":__WEBPACK_IMPORTED_MODULE_0__StandardButton_vue__["a" /* default */]
+    components: {
+        "base-button": __WEBPACK_IMPORTED_MODULE_0__StandardButton_vue__["a" /* default */]
     },
-    methods:{
-        stopMouseEvent(e){
+    methods: {
+        stopMouseEvent(e) {
             e.stopPropagation()
             return false
         }
     },
-    mounted(){
+    mounted() {
         var element = this.$refs.hovercontent
-        element.addEventListener("mousewheel",this.stopMouseEvent,false)
+        element.addEventListener("mousewheel", this.stopMouseEvent, false)
     }
 });
 
