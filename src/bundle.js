@@ -5444,40 +5444,49 @@ const defaultName = "Bo"
 __WEBPACK_IMPORTED_MODULE_0_pouchdb_browser__["a" /* default */].plugin(__WEBPACK_IMPORTED_MODULE_1_pouchdb_find__["a" /* default */])
 
 const DB = {
-    lib: new __WEBPACK_IMPORTED_MODULE_0_pouchdb_browser__["a" /* default */]('lib'),
-    recent: new __WEBPACK_IMPORTED_MODULE_0_pouchdb_browser__["a" /* default */]('recent'),
-    books: new __WEBPACK_IMPORTED_MODULE_0_pouchdb_browser__["a" /* default */]('books'),
+    lib: new __WEBPACK_IMPORTED_MODULE_0_pouchdb_browser__["a" /* default */]("lib"),
+    recent: new __WEBPACK_IMPORTED_MODULE_0_pouchdb_browser__["a" /* default */]("recent"),
+    books: new __WEBPACK_IMPORTED_MODULE_0_pouchdb_browser__["a" /* default */]("books"),
     init: () => {
-        DB.books.createIndex({
-            index: {
-                fields: ['url']
-            }
-        }).then(function (result) {
-            console.log(result.result == "exists" ? "已初始化数据库" : result)
-        }).catch(function (err) {
-            console.log(err)
-        });
+        DB.books
+            .createIndex({
+                index: {
+                    fields: ["url"]
+                }
+            })
+            .then(function(result) {
+                console.log(
+                    result.result == "exists" ? "已初始化数据库" : result
+                )
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
 
-        DB.recent.createIndex({
-            index: {
-                fields: ['order']
-            }
-        }).then(function (result) {
-            console.log(result.result == "exists" ? "已初始化最近阅读信息" : result)
-
-        }).catch(function (err) {
-            console.log(err)
-        });
+        DB.recent
+            .createIndex({
+                index: {
+                    fields: ["order"]
+                }
+            })
+            .then(function(result) {
+                console.log(
+                    result.result == "exists" ? "已初始化最近阅读信息" : result
+                )
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = DB;
 
 
-const openBook = async (url) => {
+const openBook = async url => {
     //先看数据库里有没有 如果有 直接读取书籍信息 如果没有先添加到数据库，然后读取信息
 
     let hasBook = await ifBookExist(url)
-    console.log(await hasBook ? "书籍已添加过" : "书籍不存在")
+    console.log((await hasBook) ? "书籍已添加过" : "书籍不存在")
     if (!hasBook) {
         writeNewBookData(url)
         console.info("新的书籍信息已添加")
@@ -5491,32 +5500,35 @@ const openBook = async (url) => {
 /* harmony export (immutable) */ __webpack_exports__["f"] = openBook;
 
 
-const ifBookExist = async (url) => {
+const ifBookExist = async url => {
     let result = await DB.books.find({
         selector: { url: url }
-    });
+    })
     return result.docs.length > 0 ? true : false
 }
 
-const writeNewBookData = (url) => {
+const writeNewBookData = url => {
     return new Promise((resolve, reject) => {
-        DB.books.put({
-            _id: __WEBPACK_IMPORTED_MODULE_2_md5___default()(url),
-            url: url,
-            bookmark: [],
-            addTime: new Date(),
-            lastRead: ""
-        }).then(function (response) {
-            resolve(response)
-        }).catch(function (err) {
-            reject(err)
-        });
+        DB.books
+            .put({
+                _id: __WEBPACK_IMPORTED_MODULE_2_md5___default()(url),
+                url: url,
+                bookmark: [],
+                addTime: new Date(),
+                lastRead: ""
+            })
+            .then(function(response) {
+                resolve(response)
+            })
+            .catch(function(err) {
+                reject(err)
+            })
     })
 }
 /* unused harmony export writeNewBookData */
 
 
-const readBookData = async (url) => {
+const readBookData = async url => {
     let result = await DB.books.find({
         selector: { url: url }
     })
@@ -5525,12 +5537,12 @@ const readBookData = async (url) => {
 /* unused harmony export readBookData */
 
 
-const getRecentBooks = async (count) => {
+const getRecentBooks = async count => {
     let recentBooks = await DB.recent.find({
         selector: {
-            order: { '$gt': null }
+            order: { $gt: null }
         },
-        sort: [{ order: 'desc' }],
+        sort: [{ order: "desc" }],
         limit: count || 10
     })
     return recentBooks.docs
@@ -5538,7 +5550,7 @@ const getRecentBooks = async (count) => {
 /* harmony export (immutable) */ __webpack_exports__["d"] = getRecentBooks;
 
 
-const saveToRecent = async (book) => {
+const saveToRecent = async book => {
     let query = await DB.recent.find({
         selector: {
             _id: book._id
@@ -5547,9 +5559,9 @@ const saveToRecent = async (book) => {
     let exist = query.docs.length == 0 ? false : true
     let maxIdItem = await DB.recent.find({
         selector: {
-            order: { '$gt': null }
+            order: { $gt: null }
         },
-        sort: [{ order: 'desc' }],
+        sort: [{ order: "desc" }],
         limit: 1
     })
     let maxId = maxIdItem.docs.length > 0 ? maxIdItem.docs[0].order : 0
@@ -5557,8 +5569,7 @@ const saveToRecent = async (book) => {
     if (exist) {
         if (maxIdItem.docs[0]._id == book._id) {
             console.log("已经是最新状态")
-        }
-        else {
+        } else {
             var doc = await DB.recent.get(book._id)
             var response = await DB.recent.put({
                 _id: doc._id,
@@ -5567,8 +5578,7 @@ const saveToRecent = async (book) => {
             })
             console.log("更新OK")
         }
-    }
-    else {
+    } else {
         var response = await DB.recent.put({
             _id: book._id,
             order: maxId + 1
@@ -5577,24 +5587,42 @@ const saveToRecent = async (book) => {
     }
 }
 
-
-
-const readCover = async (epub) => {
-    var imageUrl = epub.contents.cover || (epub.contents.manifest.cover ? epub.contents.manifest.cover.url : false) || (epub.contents.manifest["cover-image"] ? epub.contents.manifest["cover-image"].url : false) || null
-    var imageBlob = imageUrl ? (await epub.store.getUrl(imageUrl) || "") : null
+const readCover = async epub => {
+    let epubManifest = await epub.loaded.manifest
+    let imageUrl =
+        (await epub.loaded.cover) ||
+        (await epub.loaded.metadata.cover) ||
+        (await epub.cover) ||
+        (epubManifest.cover
+            ? epubManifest.cover.url || epubManifest.cover.href || false
+            : false) ||
+        (epub.loaded.manifest["cover-image"]
+            ? epub.loaded.manifest["cover-image"].url
+            : false) ||
+        null
+    console.log(imageUrl)
+    if (imageUrl[0] != "/") {
+        imageUrl = "/" + imageUrl
+    }
+    let imageBlob = imageUrl
+        ? window.URL.createObjectURL(await epub.archive.getBlob(imageUrl)) ||
+          null
+        : null
     return new Promise((resolve, reject) => {
         resolve(imageBlob)
     })
 }
 
-const getBookMeta = async (url) => {
+const getBookMeta = async url => {
     return new Promise(async (resolve, reject) => {
         let epub = ePub({ restore: true })
         if (!url) {
             throw new Error("没路径读个JB！")
         }
         epub.open(url)
-        let meta = await epub.getMetadata()
+        let meta = await epub.loaded.metadata
+        console.log(meta.title + " - Meta信息：", meta)
+        console.log(meta.title + " - ePub对象：", epub)
         meta.cover = await readCover(epub)
         epub = null
         resolve(meta)
@@ -5603,27 +5631,28 @@ const getBookMeta = async (url) => {
 /* harmony export (immutable) */ __webpack_exports__["c"] = getBookMeta;
 
 
-const bookIdMeta = async (id) => {
+const bookIdMeta = async id => {
     let book = await DB.books.get(id)
     return getBookMeta(book.url)
 }
 /* harmony export (immutable) */ __webpack_exports__["g"] = bookIdMeta;
 
 
-const idToBook = async (id) => {
+const idToBook = async id => {
     let book = await DB.books.get(id)
     return book.url
 }
 /* harmony export (immutable) */ __webpack_exports__["e"] = idToBook;
 
 
-const updateBook = async (book) => {
+const updateBook = async book => {
     let doc = await DB.books.get(book._id)
     book._rev = doc._rev
     DB.books.put(book)
-    console.log("书籍信息已更新",doc)
+    console.log("书籍信息已更新", doc)
 }
 /* harmony export (immutable) */ __webpack_exports__["b"] = updateBook;
+
 
 
 /***/ }),

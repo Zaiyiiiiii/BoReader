@@ -29,8 +29,7 @@
   },
   "dependencies": {
     "@reactivex/rxjs": "^5.5.1",
-    "epub.js": "^0.2.15",
-    "jszip": "^2.5.0",
+    "jszip": "^3.1.5",
     "md5": "^2.2.1",
     "node-gyp": "^3.6.2",
     "pouchdb-browser": "^6.3.4",
