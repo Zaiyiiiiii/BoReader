@@ -9,11 +9,11 @@
 <style>
     .lineheight-selector {
         height: 100%;
-        width: auto;
+        width: 140px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         overflow: visible;
     }
 
@@ -32,14 +32,14 @@
         padding: 0;
         margin: 0;
         background: none;
-        text-align: center;
+        text-align: right;
         /* text-decoration-line: underline; */
     }
 
     .lineheight-selector>span {
         font-size: 1.25em;
         white-space: nowrap;
-        padding-right: 0.3em;
+        padding-right: 0.35em;
     }
 
     .lineheight-selector>input[type=number]::-webkit-inner-spin-button {

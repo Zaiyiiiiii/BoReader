@@ -23,7 +23,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 30%, rgba(210, 210, 200, 0.3) 65%, rgba(210, 210, 200, 0.8));
+        /* background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 30%, rgba(210, 210, 200, 0.3) 65%, rgba(210, 210, 200, 0.8)); */
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(246, 246, 241, 0.8) 30%, rgba(230, 230, 220, 0.9) 65%, rgba(220, 220, 210, 0.9));
         overflow-y: visible
     }
     .sidebar-container:hover {

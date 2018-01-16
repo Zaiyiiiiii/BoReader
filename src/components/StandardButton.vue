@@ -6,10 +6,11 @@
 <style>
     .button-standard{
         position: relative;
-        border: 1.25em solid transparent;
-        height: 1.5em;
-        width: 1.5em;
-        background-size: cover;
+        /* border: 1.25em solid transparent; */
+        height: 4em;
+        width: 4em;
+        background-size: 1.5em 1.5em;
+        background-position: center;
         background-repeat: no-repeat;
     }
 </style>

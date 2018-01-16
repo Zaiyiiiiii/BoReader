@@ -43919,7 +43919,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.hovershow-button:hover{\r\n    background: transparent!important;\n}\n.hovershow-button:hover > .hovershow-content{\r\n    opacity: 1;\r\n    transition: all 0.2s;\r\n    pointer-events: auto;\n}\n.hovershow-content{\r\n    opacity: 0;\r\n    pointer-events: none;\r\n    position: absolute;\r\n    top: 0;\r\n    right: -0.5em;\r\n    height: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    overflow-y: visible;\n}\r\n", ""]);
+exports.push([module.i, "\n.hovershow-button:hover{\r\n    background: transparent!important;\n}\n.hovershow-button:hover > .hovershow-content{\r\n    opacity: 1;\r\n    transition: all 0.2s;\r\n    pointer-events: auto;\r\n    background: linear-gradient(to right, rgba(250, 250, 250, 0), rgba(250, 250, 250, 0.6) 20%, rgba(250, 250, 250, 0.9) 65%, rgba(250, 250, 250, 1));\n}\n.hovershow-content{\r\n    opacity: 0;\r\n    pointer-events: none;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n    padding-right: 20px;\r\n    height: 100%;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    overflow-y: visible;\n}\r\n", ""]);
 
 // exports
 
@@ -43933,7 +43933,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.fontsize-selector {\n    height: 100%;\n    width: auto;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    overflow: visible;\n}\n.fontsize-selector>* {\n    color: #7E8282;\n    font-family: \"default\";\n    font-weight: lighter;\n}\n.fontsize-selector>input {\n    font-size: 1.15em;\n    height: 100%;\n    width: 1.85em;\n    outline: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    background: none;\n    text-align: center;\n    /* text-decoration-line: underline; */\n}\n.fontsize-selector>span {\n    font-size: 1.25em;\n    white-space: nowrap;\n    padding-right: 0.3em;\n    text-shadow: 20px 0px rgba(246, 246, 241, 1);\n}\n.fontsize-selector>input[type=number]::-webkit-inner-spin-button {\n    /* background: none;\n    opacity: 1; */\n    -webkit-appearance: none;\n}\n", ""]);
+exports.push([module.i, "\n.fontsize-selector {\n    height: 100%;\n    width: 140px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-end;\n    overflow: visible;\n}\n.fontsize-selector>* {\n    color: #7E8282;\n    font-family: \"default\";\n    font-weight: lighter;\n}\n.fontsize-selector>input {\n    font-size: 1.15em;\n    height: 100%;\n    width: 1.85em;\n    outline: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    background: none;\n    text-align: right;\n    /* text-decoration-line: underline; */\n}\n.fontsize-selector>span {\n    font-size: 1.25em;\n    white-space: nowrap;\n    padding-right: 0.35em;\n    text-shadow: 20px 0px rgba(246, 246, 241, 1);\n}\n.fontsize-selector>input[type=number]::-webkit-inner-spin-button {\n    /* background: none;\n    opacity: 1; */\n    -webkit-appearance: none;\n}\n", ""]);
 
 // exports
 
@@ -43947,7 +43947,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.lineheight-selector {\n    height: 100%;\n    width: auto;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    overflow: visible;\n}\n.lineheight-selector>* {\n    color: #7E8282;\n    font-family: \"default\";\n    font-weight: lighter;\n}\n.lineheight-selector>input {\n    font-size: 1.15em;\n    height: 100%;\n    width: 1.85em;\n    outline: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    background: none;\n    text-align: center;\n    /* text-decoration-line: underline; */\n}\n.lineheight-selector>span {\n    font-size: 1.25em;\n    white-space: nowrap;\n    padding-right: 0.3em;\n}\n.lineheight-selector>input[type=number]::-webkit-inner-spin-button {\n    /* background: none;\n    opacity: 1; */\n    -webkit-appearance: none;\n}\n", ""]);
+exports.push([module.i, "\n.lineheight-selector {\n    height: 100%;\n    width: 140px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-end;\n    overflow: visible;\n}\n.lineheight-selector>* {\n    color: #7E8282;\n    font-family: \"default\";\n    font-weight: lighter;\n}\n.lineheight-selector>input {\n    font-size: 1.15em;\n    height: 100%;\n    width: 1.85em;\n    outline: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    background: none;\n    text-align: right;\n    /* text-decoration-line: underline; */\n}\n.lineheight-selector>span {\n    font-size: 1.25em;\n    white-space: nowrap;\n    padding-right: 0.35em;\n}\n.lineheight-selector>input[type=number]::-webkit-inner-spin-button {\n    /* background: none;\n    opacity: 1; */\n    -webkit-appearance: none;\n}\n", ""]);
 
 // exports
 
@@ -43975,7 +43975,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.button-standard{\n    position: relative;\n    border: 1.25em solid transparent;\n    height: 1.5em;\n    width: 1.5em;\n    background-size: cover;\n    background-repeat: no-repeat;\n}\n", ""]);
+exports.push([module.i, "\n.button-standard{\n    position: relative;\n    /* border: 1.25em solid transparent; */\n    height: 4em;\n    width: 4em;\n    background-size: 1.5em 1.5em;\n    background-position: center;\n    background-repeat: no-repeat;\n}\n", ""]);
 
 // exports
 
@@ -44045,7 +44045,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n/*三种状态 unhover hover(hover-show：hover时出现,hover-unshow：默认) 展开状态 */\n.sidebar-container {\n    z-index: 100;\n    -webkit-app-region: no-drag;\n    min-width: 4em;\n    height: 100%;\n    opacity: 0;\n    transition: opacity 0.5s;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 30%, rgba(210, 210, 200, 0.3) 65%, rgba(210, 210, 200, 0.8));\n    overflow-y: visible\n}\n.sidebar-container:hover {\n    opacity: 1;\n}\n.sidebar-container>button:hover {\n    color: red\n}\n.sidebar-container>button {\n    flex-shrink: 0;\n}\n.sidebar-button{\n    padding: 0;\n    align-self: stretch;\n    transition: all 0.2s;\n    opacity: 0.5;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    min-width: 0;\n}\n.sidebar-button:hover {\n    box-shadow: 20px 0px 30px 0px rgba(0, 0, 0, 0.2);\n    opacity: 1;\n    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.55) 65%, rgba(255, 255, 255, 0.9));\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n/*三种状态 unhover hover(hover-show：hover时出现,hover-unshow：默认) 展开状态 */\n.sidebar-container {\n    z-index: 100;\n    -webkit-app-region: no-drag;\n    min-width: 4em;\n    height: 100%;\n    opacity: 0;\n    transition: opacity 0.5s;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    /* background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 30%, rgba(210, 210, 200, 0.3) 65%, rgba(210, 210, 200, 0.8)); */\n    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(246, 246, 241, 0.8) 30%, rgba(230, 230, 220, 0.9) 65%, rgba(220, 220, 210, 0.9));\n    overflow-y: visible\n}\n.sidebar-container:hover {\n    opacity: 1;\n}\n.sidebar-container>button:hover {\n    color: red\n}\n.sidebar-container>button {\n    flex-shrink: 0;\n}\n.sidebar-button{\n    padding: 0;\n    align-self: stretch;\n    transition: all 0.2s;\n    opacity: 0.5;\n    display: flex;\n    align-items: center;\n    justify-content: flex-end;\n    min-width: 0;\n}\n.sidebar-button:hover {\n    box-shadow: 20px 0px 30px 0px rgba(0, 0, 0, 0.2);\n    opacity: 1;\n    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.55) 65%, rgba(255, 255, 255, 0.9));\n}\n", ""]);
 
 // exports
 
@@ -81880,6 +81880,8 @@ if (false) {(function () {
 //
 //
 //
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -82050,6 +82052,7 @@ if (false) {(function () {
 //
 //
 //
+//
 
 
 
@@ -82097,6 +82100,7 @@ if (false) {(function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+//
 //
 //
 //
