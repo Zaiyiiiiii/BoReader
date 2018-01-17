@@ -44017,7 +44017,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.bookitem-container{\n    width: 111px;\n    height: 156px;\n    position: relative;\n}\n.bookitem-cover{\n    position: relative;\n    z-index: 1;\n    transition: transform 0.5s;\n    width: 100%;\n    height: 100%;\n    background-size: cover;\n    box-shadow: 1px 2px 3px 1px rgba(110, 110, 90, 0.1);\n}\n.book-hover:hover > .bookitem-cover{\n    transform: translateY(-1em)\n}\n.book-hover:hover > .book-name{\n    opacity: 1;\n}\n.bookitem-no-cover{\n    box-sizing: border-box;\n    font-size: 22px;\n    padding: 1em 0 1em 1em;\n    background: -webkit-linear-gradient(left, #f1f1f2 0%, #fffbf6 100%);\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    font-weight: bolder;\n    text-transform: capitalize;\n    overflow: visible;\n}\n.bookitem-cover-title{       \n    width: 100%;\n    height: 100%; \n    overflow: visible;\n    background-image:  linear-gradient(to left, rgba(253, 13, 13, 0), rgba(103, 103, 103, 0.41));\n    color: transparent;\n    font-family: \"default\";\n    -webkit-background-clip: text;\n    background-clip: text;\n}\n.book-name{\n    color:rgba(153, 153, 153, 1);\n    transition: opacity 0.5s;\n    position: absolute;\n    display: inline-block;\n    opacity: 0;\n    bottom: -2em;\n    line-height: 1.25em;\n    height: 2.5em;\n    font-size: 14px;\n    width: 100%;\n    text-align: center;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    -webkit-box-orient: vertical; \n    -webkit-box-align: center;\n    /* -webkit-line-clamp: 1; */\n    /* word-break: break-all; */\n    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;\n    font-weight: lighter;\n}\n", ""]);
+exports.push([module.i, "\n.bookitem-container{\n    width: 111px;\n    height: 156px;\n    position: relative;\n}\n.bookitem-cover{\n    position: relative;\n    z-index: 1;\n    transition: transform 0.5s;\n    width: 100%;\n    height: 100%;\n    background-size: cover;\n    box-shadow: 1px 2px 3px 1px rgba(110, 110, 90, 0.1);\n}\n.book-hover:hover > .bookitem-cover{\n    transform: translateY(-1em)\n}\n.book-hover:hover > .book-name{\n    opacity: 1;\n}\n.bookitem-no-cover{\n    box-sizing: border-box;\n    font-size: 22px;\n    padding: 1em 0 1em 1em;\n    background: -webkit-linear-gradient(left, #f1f1f2 0%, #fffbf6 100%);\n    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;\n    font-weight: bolder;\n    text-transform: capitalize;\n    overflow: visible;\n}\n.bookitem-cover-title{       \n    width: 100%;\n    height: 100%; \n    overflow: visible;\n    background-image:  linear-gradient(to left, rgba(253, 13, 13, 0), rgba(103, 103, 103, 0.41));\n    color: transparent;\n    font-family: \"default\";\n    -webkit-background-clip: text;\n    background-clip: text;\n    cursor: default;\n    user-select: none;\n}\n.book-name{\n    color:rgba(153, 153, 153, 1);\n    transition: opacity 0.5s;\n    position: absolute;\n    display: inline-block;\n    opacity: 0;\n    bottom: -2em;\n    line-height: 1.25em;\n    height: 2.5em;\n    font-size: 14px;\n    width: 100%;\n    text-align: center;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    -webkit-box-orient: vertical; \n    -webkit-box-align: center;\n    /* -webkit-line-clamp: 1; */\n    /* word-break: break-all; */\n    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;\n    font-weight: lighter;\n    cursor: default;\n    user-select: none;\n}\n", ""]);
 
 // exports
 
@@ -44031,7 +44031,7 @@ exports = module.exports = __webpack_require__(12)(undefined);
 
 
 // module
-exports.push([module.i, "\n.library {\n    box-sizing: border-box;\n    margin-top: 3.5em;\n    width: 100%;\n    overflow: hidden;\n    -webkit-app-region: no-drag;\n}\n.shelf-recent {\n    width: 100%;\n    position: relative;\n    background: rgba(255, 255, 249, 1);\n    padding: 0.3em 2em 3em 2em;\n}\n.shelf-recent>h1 {\n    font-family: \"default\";\n    font-weight: lighter;\n}\n.shelf-recent-list {\n    width: 100%;\n    display: flex;\n}\n.shelf-newbook {\n    box-sizing: border-box;\n    border: 4px dashed rgba(220, 220, 210, 1);\n    color: rgba(220, 220, 210, 1);\n    margin-right: 2em;\n    background-position: center center;\n    background-size: 2.5em;\n    background-repeat: no-repeat;\n    flex-shrink: 0;\n    width: 111px;\n    height: 156px;\n}\n.shelf-recent-item {\n    margin-right: 2em;\n    flex-shrink: 0;\n}\n", ""]);
+exports.push([module.i, "\n.library {\r\n    box-sizing: border-box;\r\n    margin-top: 3.5em;\r\n    width: 100%;\r\n    overflow: hidden;\r\n    -webkit-app-region: no-drag;\n}\n.shelf-recent {\r\n    width: 100%;\r\n    position: relative;\r\n    background: rgba(255, 255, 249, 1);\r\n    padding: 0.3em 2em 0 2em;\r\n    box-sizing: border-box;\n}\n.shelf-recent > h1 {\r\n    font-family: \"default\";\r\n    font-weight: lighter;\n}\n.shelf-recent-list {\r\n    width: 100%;\r\n    display: flex;\n}\n.shelf-newbook {\r\n    box-sizing: border-box;\r\n    border: 4px dashed rgba(220, 220, 210, 1);\r\n    color: rgba(220, 220, 210, 1);\r\n    margin-right: 2em;\r\n    background-position: center center;\r\n    background-size: 2.5em;\r\n    background-repeat: no-repeat;\r\n    flex-shrink: 0;\r\n    width: 111px;\r\n    height: 156px;\n}\n.shelf-recent-items {\r\n    display: flex;\r\n    flex: auto;\r\n    overflow: visible;\r\n    height: calc(165px + 2em);\n}\n.shelf-recent-items-container{\r\n    position: relative;\r\n    padding-top: 2em;\r\n    top: -2em;\r\n    overflow-x: auto;\n}\n.shelf-recent-item {\r\n    margin-right: 2em;\r\n    flex-shrink: 0;\n}\n.smooth-scrollbar::-webkit-scrollbar {\r\n    height: 2px;\n}\n.smooth-scrollbar::-webkit-scrollbar-track {\r\n    border-radius: 2px;\r\n    background-color: rgba(200, 200, 200, 0);\r\n    transition: all 0.5s;\n}\n.smooth-scrollbar:hover::-webkit-scrollbar-track {\r\n    border-radius: 2px;\r\n    background-color: rgba(200, 200, 200, 0.4);\n}\n.smooth-scrollbar::-webkit-scrollbar-thumb {\r\n    border-radius: 2px;\r\n    background-color: rgba(136, 136, 136, 0.2);\r\n    transition: all 0.5s;\n}\n.smooth-scrollbar:hover::-webkit-scrollbar-thumb {\r\n    background-color: rgba(136, 136, 136, 0.8);\n}\n.smooth-scrollbar:window-inactive::-webkit-scrollbar-thumb {\r\n    background-color: rgba(100, 100, 100, 0.4);\n}\r\n", ""]);
 
 // exports
 
@@ -81817,6 +81817,10 @@ if (false) {(function () {
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
@@ -82466,21 +82470,66 @@ if (false) {(function () {
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-    computed: {
-    },
+    computed: {},
     components: {
         "book-item": __WEBPACK_IMPORTED_MODULE_1__components_BookItem_vue__["a" /* default */]
     },
     data() {
         return {
-            msg: '打开',
+            msg: "打开",
             bookList: []
         }
     },
@@ -82491,21 +82540,26 @@ if (false) {(function () {
         openBookFile() {
             return new Promise((resolve, reject) => {
                 const { dialog } = __webpack_require__(83).remote
-                dialog.showOpenDialog({
-                    properties: ['openFile'],
-                    filters: [
-                        {
-                            name: 'Epub格式',
-                            extensions: ['epub']
-                        }
-                    ]
-                }, function(files) {
-                    resolve(files[0])
-                })
+                dialog.showOpenDialog(
+                    {
+                        properties: ["openFile"],
+                        filters: [
+                            {
+                                name: "Epub格式",
+                                extensions: ["epub"]
+                            }
+                        ]
+                    },
+                    function(files) {
+                        resolve(files[0])
+                    }
+                )
             })
         },
         async open(book) {
-            let url = (book ? await __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__BookOps__["e" /* idToBook */])(book._id) : false) || await this.openBookFile()
+            let url =
+                (book ? await __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__BookOps__["e" /* idToBook */])(book._id) : false) ||
+                (await this.openBookFile())
             let bookData = await __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__BookOps__["f" /* openBook */])(url)
             console.log(this.$store)
             this.$store.commit("SET_BOOK", { book: bookData })
@@ -82598,7 +82652,7 @@ if (false) {(function () {
 
         //初始化样式
         this.book.setStyle("font-family", "defaultText")
-        this.book.setStyle("background", "none!important")
+        this.book.setStyle("background-color", "rgba(0,0,0,0)")
 
         if(this.book){
             this.setStyle(this.$store.state.reader.book)
@@ -82658,10 +82712,10 @@ if (false) {(function () {
         setStyle(book){
             if(book.config && this.book){            
                 if(book.config["font-size"]){
-                    this.book.setStyle("font-size", book.config["font-size"])
+                    this.book.setStyle("font-size", book.config["font-size"]+"px")
                 }
                 if(book.config["line-height"]){                    
-                    this.book.setStyle("line-height", book.config["line-height"])
+                    this.book.setStyle("line-height", book.config["line-height"]+"em")
                 }
             }
         },
@@ -83072,35 +83126,40 @@ var render = function() {
     _c("section", { staticClass: "shelf-recent" }, [
       _c("h1", [_vm._v("最近阅读")]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "shelf-recent-list" },
-        [
-          _c("div", {
-            staticClass: "bookitem-container shelf-newbook",
-            staticStyle: { "background-image": "url('../static/addbook.svg')" },
-            on: {
-              click: function($event) {
-                _vm.open()
-              }
+      _c("div", { staticClass: "shelf-recent-list" }, [
+        _c("div", {
+          staticClass: "bookitem-container shelf-newbook",
+          staticStyle: { "background-image": "url('../static/addbook.svg')" },
+          on: {
+            click: function($event) {
+              _vm.open()
             }
-          }),
-          _vm._v(" "),
-          _vm._l(_vm.bookList, function(book, index) {
-            return _c("book-item", {
-              key: index,
-              staticClass: "shelf-recent-item",
-              attrs: { book: book },
-              on: {
-                click: function($event) {
-                  _vm.open(book)
-                }
-              }
-            })
-          })
-        ],
-        2
-      )
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "shelf-recent-items-container smooth-scrollbar" },
+          [
+            _c(
+              "div",
+              { staticClass: "shelf-recent-items" },
+              _vm._l(_vm.bookList, function(book, index) {
+                return _c("book-item", {
+                  key: index,
+                  staticClass: "shelf-recent-item",
+                  attrs: { book: book },
+                  on: {
+                    click: function($event) {
+                      _vm.open(book)
+                    }
+                  }
+                })
+              })
+            )
+          ]
+        )
+      ])
     ])
   ])
 }

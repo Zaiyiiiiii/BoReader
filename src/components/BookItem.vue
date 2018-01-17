@@ -47,6 +47,8 @@
         font-family: "default";
         -webkit-background-clip: text;
         background-clip: text;
+        cursor: default;
+        user-select: none;
     }
 
     .book-name{
@@ -70,6 +72,8 @@
         /* word-break: break-all; */
         font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
         font-weight: lighter;
+        cursor: default;
+        user-select: none;
     }
 </style>
 <script>

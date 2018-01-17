@@ -71,7 +71,7 @@
 
             //初始化样式
             this.book.setStyle("font-family", "defaultText")
-            this.book.setStyle("background", "none!important")
+            this.book.setStyle("background-color", "rgba(0,0,0,0)")
 
             if(this.book){
                 this.setStyle(this.$store.state.reader.book)
@@ -131,10 +131,10 @@
             setStyle(book){
                 if(book.config && this.book){            
                     if(book.config["font-size"]){
-                        this.book.setStyle("font-size", book.config["font-size"])
+                        this.book.setStyle("font-size", book.config["font-size"]+"px")
                     }
                     if(book.config["line-height"]){                    
-                        this.book.setStyle("line-height", book.config["line-height"])
+                        this.book.setStyle("line-height", book.config["line-height"]+"em")
                     }
                 }
             },
