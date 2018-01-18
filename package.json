@@ -9,7 +9,6 @@
     "web": "webpack --target web && webpack-dev-server --target web --hot --inline",
     "packager-win": "webpack --target electron-renderer && set ELECTRON_MIRROR=https://npm.taobao.org/mirrors/electron/ && electron-packager . --out=./dist --icon=./static/Bo.ico --platform=win32 --overwrite --asar"
   },
-  "license": "CNM",
   "devDependencies": {
     "concurrently": "^3.5.0",
     "css-loader": "^0.28.1",

@@ -41,6 +41,8 @@
         white-space: nowrap;
         padding-right: 0.35em;
         text-shadow: 20px 0px rgba(246, 246, 241, 1);
+        user-select: none;
+        cursor: default;
     }
 
     .fontsize-selector>input[type=number]::-webkit-inner-spin-button {

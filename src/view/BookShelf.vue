@@ -48,6 +48,8 @@
     font-family: "default";
     font-size: 14px;
     text-indent: 0.6em;
+    padding-right: 0.6em;
+    border-right: 2px solid currentColor;
 }
 
 .version:hover {
@@ -79,6 +81,8 @@
 .shelf-recent > h1 {
     font-family: "default";
     font-weight: lighter;
+    user-select: none;
+    cursor: default;
 }
 
 .shelf-recent-list {

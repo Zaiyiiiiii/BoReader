@@ -40,6 +40,8 @@
         font-size: 1.25em;
         white-space: nowrap;
         padding-right: 0.35em;
+        user-select: none;
+        cursor: default;
     }
 
     .lineheight-selector>input[type=number]::-webkit-inner-spin-button {
