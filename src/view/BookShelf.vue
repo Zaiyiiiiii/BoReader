@@ -12,15 +12,59 @@
                 </div>
             </div>
         </section>
+        <div class="version" @click="versionClick" :style="playing?'opacity:1;bottom:3.5em;':''">
+            {{packageInfo.current_version}}
+        </div>
+        <transition name="versionmusic" mode="out-in">
+            <div class="version version-music" style="opacity:1;" @click="versionClick" v-if="playing && versionMusicMeta">
+                ► {{versionMusicMeta.title}} - {{versionMusicMeta.artist}}
+            </div>
+        </transition>
     </div>
 </template>
 <style>
 .library {
     box-sizing: border-box;
-    margin-top: 3.5em;
+    padding-top: 3.5em;
     width: 100%;
+    height: 100%;
     overflow: hidden;
+    -webkit-app-region: drag;
+}
+
+.version {
     -webkit-app-region: no-drag;
+    position: fixed;
+    left: 2em;
+    bottom: 1.5em;
+    color: rgba(180, 180, 160, 0.8);
+    cursor: pointer;
+    opacity: 0;
+    user-select: none;
+    transition: all 0.6s;
+}
+
+.version-music{
+    font-family: "default";
+    font-size: 14px;
+    text-indent: 0.6em;
+}
+
+.version:hover {
+    opacity: 1;
+}
+
+.version-playing {
+    opacity: 1;
+}
+
+.versionmusic-enter-active, .versionmusic-leave-active {
+    transition: all 0.6s;
+    opacity: 1;
+}
+.versionmusic-enter,.versionmusic-leave-to{
+    transform:translateX(5em);
+    color: rgba(0, 0, 0, 0)
 }
 
 .shelf-recent {
@@ -29,6 +73,7 @@
     background: rgba(255, 255, 249, 1);
     padding: 0.3em 2em 0 2em;
     box-sizing: border-box;
+    -webkit-app-region: no-drag;
 }
 
 .shelf-recent > h1 {
@@ -60,7 +105,7 @@
     overflow: visible;
     height: calc(165px + 2em);
 }
-.shelf-recent-items-container{
+.shelf-recent-items-container {
     position: relative;
     padding-top: 2em;
     top: -2em;
@@ -70,6 +115,9 @@
 .shelf-recent-item {
     margin-right: 2em;
     flex-shrink: 0;
+}
+.shelf-recent-item:last-child {
+    margin-right: 10em;
 }
 
 .smooth-scrollbar::-webkit-scrollbar {
@@ -106,6 +154,8 @@ import { mapGetters } from "vuex"
 import bookItem from "../components/BookItem.vue"
 import { getHistory } from "../util/indexDB"
 import { openBook, getRecentBooks, idToBook, updateBook } from "../BookOps"
+import packageInfo from "../../package.json"
+import { resolve } from 'url';
 export default {
     computed: {},
     components: {
@@ -114,13 +164,69 @@ export default {
     data() {
         return {
             msg: "打开",
-            bookList: []
+            bookList: [],
+            packageInfo: packageInfo,
+            playing: false,
+            versionMusic: null,
+            versionMusicMeta: null
         }
     },
     mounted: async function() {
+        console.log(packageInfo)
         this.bookList = await getRecentBooks()
     },
+    beforeDestroy(){
+        if( this.playing ){
+            this.playing = false
+            this.versionMusic.pause()    
+            this.versionMusic = null            
+        }
+    },
     methods: {
+        bufferToArrayBuffer(buffer){
+            var arrayBuffer = new ArrayBuffer(buffer.length)
+            var view = new Uint8Array(arrayBuffer)
+            for (var i = 0; i < buffer.length; ++i) {
+                view[i] = buffer[i]
+            }
+            return arrayBuffer
+        },
+        readMusicMeta(){
+            return new Promise((resolve,reject)=>{                
+                var jsmediatags = require("jsmediatags");
+                jsmediatags.read("./static/sound/RubberBand - 发现号.mp3", {
+                    onSuccess: (tag) => {
+                        resolve({
+                            title: tag.tags.title,
+                            artist: tag.tags.artist
+                        })
+                    },
+                    onError: function(error) {
+                        console.log(':(', error.type, error.info);
+                    }
+                })
+            })
+        },
+        versionClick() {
+            if (this.playing) {
+                this.playing = false
+                this.versionMusic.pause()
+            } 
+            else {
+                this.playing = true
+                if (!this.versionMusic) {
+                    this.versionMusic = new Audio()
+                    this.versionMusic.src =
+                        "../static/sound/RubberBand - 发现号.mp3"
+                }
+                if(!this.versionMusicMeta){
+                    this.readMusicMeta().then((meta)=>{
+                        this.versionMusicMeta = meta
+                    })
+                }
+                this.versionMusic.play()
+            }
+        },
         openBookFile() {
             return new Promise((resolve, reject) => {
                 const { dialog } = require("electron").remote

@@ -151,6 +151,7 @@ export const getBookMeta = async (url) => {
         epub.open(url)
         let meta = await epub.getMetadata()
         meta.cover = await readCover(epub)
+        epub.unload()
         epub = null
         resolve(meta)
     })

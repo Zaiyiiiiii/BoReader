@@ -70,7 +70,7 @@
         -webkit-box-align: center;
         /* -webkit-line-clamp: 1; */
         /* word-break: break-all; */
-        font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+        font-family: "default";
         font-weight: lighter;
         cursor: default;
         user-select: none;

@@ -36,7 +36,8 @@
         top: 0;
     }
     .apppage-enter-active, .apppage-leave-active {
-        transition: all 0.5s
+        transition: all 0.5s;
+        opacity: 1;
     }
     .apppage-enter{
         opacity: 0;

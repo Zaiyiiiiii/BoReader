@@ -1,7 +1,7 @@
 {
-  "name": "Bo",
-  "version": "0.1.0",
-  "author": "",
+  "name": "Bo.",
+  "current_version": "Blowing Out",
+  "author": "Zaiyiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
   "description": "一个Epub电子书阅读器，就酱。",
   "main": "main.js",
   "scripts": {
@@ -30,6 +30,7 @@
   "dependencies": {
     "@reactivex/rxjs": "^5.5.1",
     "epub.js": "^0.2.15",
+    "jsmediatags": "^3.8.1",
     "jszip": "^2.5.0",
     "md5": "^2.2.1",
     "node-gyp": "^3.6.2",

@@ -1,30 +1,29 @@
+const electron = require("electron")
+const app = electron.app
+const BrowserWindow = electron.BrowserWindow
 
-const electron = require('electron');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
+let mainWindow = null
 
+app.on("window-all-closed", () => {
+    app.quit()
+})
 
-let mainWindow = null;
+app.on("ready", () => {
+    mainWindow = new BrowserWindow({
+        width: 1024,
+        height: 768,
+        frame: false,
+        transparent: false
+    })
 
-app.on('window-all-closed', () => {
-    app.quit();
-});
+    //添加VueDevtools
+    // const extension = `${__dirname}/node_modules/vue-devtools/vender`
+    // BrowserWindow.addDevToolsExtension(extension)
+    // mainWindow.webContents.openDevTools();
 
+    mainWindow.loadURL(`file://${__dirname}/src/index.html`)
 
-app.on('ready', () => {
-  mainWindow = new BrowserWindow({ width: 1024, height: 768, frame: false, transparent: false });
-
-
-  //添加VueDevtools
-  const extension = `${__dirname}/node_modules/vue-devtools/vender`
-  BrowserWindow.addDevToolsExtension(extension)
-  mainWindow.webContents.openDevTools();
-
-
-  mainWindow.loadURL(`file://${__dirname}/src/index.html`);
-
-
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
-});
+    mainWindow.on("closed", () => {
+        mainWindow = null
+    })
+})
