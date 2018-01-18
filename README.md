@@ -44,7 +44,7 @@
 ## 没图你说个鸡巴
 
 >*来来来，别吵吵了，发两张！*    
->*现在还很寒颤，而且未来寒颤的日子还有很长！*
+>*现在还很寒颤，别急，未来寒颤的日子还有很长！*
 
 ![十分简陋，十分寒颤](https://raw.githubusercontent.com/wangzaiyi/EpubReader/master/static/screenshot/1.png)
 

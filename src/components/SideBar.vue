@@ -60,6 +60,7 @@
     import fontSizeButton from './buttons/FontSizeButton.vue'
     import lineHeightButton from './buttons/LineHeightButton.vue'
     import toLib from './buttons/toLib.vue'
+    import content from './buttons/Content.vue'
 
     export default {
         data() {
@@ -86,7 +87,8 @@
             "max": maxButton,
             "font-size": fontSizeButton,
             "line-height": lineHeightButton,
-            "to-lib": toLib
+            "to-lib": toLib,
+            "toc": content
         },
         mounted() {
             this.computeHeight()
