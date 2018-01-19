@@ -1,5 +1,5 @@
 <template>
-    <hovershow-button icon="../static/lineheight.svg">
+    <hovershow-button icon="../static/lineheight.svg" :hideIcon="true">
         <div class="lineheight-selector">
             <span>行距</span>
             <input type="number" min="0" step="0.05" v-model="lineHeight" @change="changeLineHeight()">
@@ -8,6 +8,7 @@
 </template>
 <style>
     .lineheight-selector {
+        -webkit-app-region: no-drag;
         height: 100%;
         width: 140px;
         display: flex;
@@ -15,6 +16,18 @@
         align-items: center;
         justify-content: flex-end;
         overflow: visible;
+        padding-right: 20px;
+        box-sizing: border-box;
+        background: linear-gradient(
+            to right,
+            rgba(250, 250, 250, 0),
+            rgba(250, 250, 250, 0.6) 18%,
+            rgba(250, 250, 250, 0.9) 60%,
+            rgba(250, 250, 250, 1)
+        );
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .lineheight-selector>* {

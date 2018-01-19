@@ -126,34 +126,6 @@
         margin-right: 10em;
     }
 
-    .smooth-scrollbar::-webkit-scrollbar {
-        height: 2px;
-    }
-
-    .smooth-scrollbar::-webkit-scrollbar-track {
-        border-radius: 2px;
-        background-color: rgba(200, 200, 200, 0);
-        transition: all 0.5s;
-    }
-
-    .smooth-scrollbar:hover::-webkit-scrollbar-track {
-        border-radius: 2px;
-        background-color: rgba(200, 200, 200, 0.4);
-    }
-
-    .smooth-scrollbar::-webkit-scrollbar-thumb {
-        border-radius: 2px;
-        background-color: rgba(136, 136, 136, 0.2);
-        transition: all 0.5s;
-    }
-
-    .smooth-scrollbar:hover::-webkit-scrollbar-thumb {
-        background-color: rgba(136, 136, 136, 0.8);
-    }
-
-    .smooth-scrollbar:window-inactive::-webkit-scrollbar-thumb {
-        background-color: rgba(100, 100, 100, 0.4);
-    }
 </style>
 <script>
     import { mapGetters } from "vuex"
@@ -163,6 +135,7 @@
     import packageInfo from "../../package.json"
     import { resolve } from 'url';
     import jsmediatags from "jsmediatags"
+    import SmoothScroll from "../mixins/SmoothScroll.vue"
     export default {
         computed: {},
         components: {
@@ -178,6 +151,7 @@
                 versionMusicMeta: null
             }
         },
+        mixins:[SmoothScroll],
         mounted: async function () {
             console.log(packageInfo)
             this.bookList = await getRecentBooks()

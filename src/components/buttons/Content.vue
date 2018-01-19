@@ -1,27 +1,45 @@
 <template>
-    <base-button icon="../static/content.svg">
-        <div @mouseover="setHover(true)" @mouseout="setHover(false)" style="height:100%;width:100%;">
-            <div class="content" v-if="isHover">
-                是的浪费空间谁动了附加费
-            </div>
+    <hovershow-button icon="../static/content.svg" :hideIcon="false" @hoverin="getToc">
+        <div class="content smooth-scrollbar">
+            <toc-item @tocclick="sendRedirectRequest" v-for="(item,index) in toc" :toc="item" :key="index"></toc-item>
         </div>
-    </base-button>
+    </hovershow-button>
 </template>
 <script>
-    import BaseButton from '../StandardButton.vue'
+    import TocItem from '../TocItem.vue'
+    import HoverShowButton from '../HoverShowButton.vue'
+    import SmoothScroll from "../../mixins/SmoothScroll.vue"
     export default {
         data() {
             return {
-                isHover: false
+                toc: []
             }
         },
+        mixins: [SmoothScroll],
+        created() {
+            this.$bus.on("tocMessage", (e) => {
+                console.log(e)
+                if (e) {
+                    this.toc = e.toc
+                }
+            })
+        },
+        activated() {
+            console.log("Toc组件激活")
+        },
+        destroy() {
+            this.$bus.off()
+        },
         components: {
-            "base-button": BaseButton
+            "hovershow-button": HoverShowButton,
+            "toc-item": TocItem
         },
         methods: {
-            setHover(hover) {
-                this.isHover = hover
-                console.log(isHover ? "在！" : "不在！")
+            getToc() {
+                this.$bus.emit("requestCurrentToc")
+            },
+            sendRedirectRequest(cfi) {
+                this.$bus.emit("redirectReaderByCFI", { cfi: cfi })
             }
         }
     }    
@@ -29,12 +47,23 @@
 <style>
     .content {
         position: fixed;
-        right: 20px;
-        top: 0;
-        height: 100%;
-        width: 120px;
+        right: 60px;
+        top: 1px;
+        height: calc(100% - 2px);
+        width: 320px;
         background: red;
         opacity: 1;
+        -webkit-app-region: no-drag;
+        padding: 2em 0 0 2em;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: linear-gradient(
+            to left,
+            rgba(250, 250, 250, 0),
+            rgba(240, 240, 235, 0.95) 30px,
+            rgba(240, 240, 235, 0.95)
+        );
+        box-shadow: -2px 0 1px 1px rgba(100, 100, 100, 0.05);
     }
 </style>
 

@@ -36,6 +36,7 @@
     "pouchdb-browser": "^6.3.4",
     "pouchdb-find": "^6.3.4",
     "vue": "^2.3.4",
+    "vue-bus": "^1.0.0",
     "vue-router": "^2.7.0",
     "vuex": "^2.3.1"
   },

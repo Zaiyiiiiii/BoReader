@@ -17,7 +17,10 @@ router.beforeEach((to, from, next) => {
   next()
 })
 
-
+// 初始化事件总线
+// 用事件总线处理部分问题
+import VueBus from 'vue-bus';
+Vue.use(VueBus);
 
 // 初始化UI字体
 var UIFont = new FontFace("default", "url(../static/fonts/SourceHanSansSC-Light.otf)", {});

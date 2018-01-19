@@ -1,5 +1,5 @@
 <template>
-    <div class="sidebar-container">
+    <div class="sidebar-container" :class="{'sidebar-container-hover':isHover}" @mouseover="setHover(true)" @mouseleave="setHover(false)">
         <div class="sidebar-button" v-for="button in staticButtons" :key="button">
             <component :is="button"></component>
         </div>
@@ -24,21 +24,19 @@
         flex-direction: column;
         align-items: center;
         /* background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0) 30%, rgba(210, 210, 200, 0.3) 65%, rgba(210, 210, 200, 0.8)); */
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(246, 246, 241, 0.8) 30%, rgba(230, 230, 220, 0.9) 65%, rgba(220, 220, 210, 0.9));
-        overflow-y: visible
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0),
+            rgba(246, 246, 241, 0.8) 30%,
+            rgba(230, 230, 220, 0.9) 65%,
+            rgba(220, 220, 210, 0.9)
+        );
+        overflow-y: visible;
     }
-    .sidebar-container:hover {
+    .sidebar-container-hover {
         opacity: 1;
     }
-
-    .sidebar-container>button:hover {
-        color: red
-    }
-
-    .sidebar-container>button {
-        flex-shrink: 0;
-    }
-    .sidebar-button{
+    .sidebar-button {
         padding: 0;
         align-self: stretch;
         transition: all 0.2s;
@@ -51,7 +49,13 @@
     .sidebar-button:hover {
         box-shadow: 20px 0px 30px 0px rgba(0, 0, 0, 0.2);
         opacity: 1;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2) 30%, rgba(255, 255, 255, 0.55) 65%, rgba(255, 255, 255, 0.9));
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.2) 30%,
+            rgba(255, 255, 255, 0.55) 65%,
+            rgba(255, 255, 255, 0.9)
+        );
     }
 </style>
 <script>
@@ -61,14 +65,16 @@
     import lineHeightButton from './buttons/LineHeightButton.vue'
     import toLib from './buttons/toLib.vue'
     import content from './buttons/Content.vue'
+    import Hover from '../mixins/hover.vue'
 
     export default {
         data() {
             return {
                 height: 0,
-                staticButtons: ["exit", "max"]
+                staticButtons: ["exit", "max"],
             }
         },
+        mixins: [Hover],
         computed: {
             routeButtons() {
                 return this.$route.meta.sideBarButtons
