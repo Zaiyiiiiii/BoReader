@@ -20,23 +20,23 @@
         box-sizing: border-box;
         background: linear-gradient(
             to right,
-            rgba(250, 250, 250, 0),
-            rgba(250, 250, 250, 0.6) 18%,
-            rgba(250, 250, 250, 0.9) 60%,
-            rgba(250, 250, 250, 1)
+            hsla(0, 0, 98%, 0),
+            hsla(0, 0, 98%, 0.6) 18%,
+            hsla(0, 0, 98%, 0.9) 60%,
+            hsla(0, 0, 98%, 1)
         );
         position: absolute;
         top: 0;
         right: 0;
     }
 
-    .fontsize-selector>* {
-        color: #7E8282;
+    .fontsize-selector > * {
+        color: #7e8282;
         font-family: "default";
         font-weight: lighter;
     }
 
-    .fontsize-selector>input {
+    .fontsize-selector > input {
         font-size: 1.15em;
         height: 100%;
         width: 1.85em;
@@ -49,7 +49,7 @@
         /* text-decoration-line: underline; */
     }
 
-    .fontsize-selector>span {
+    .fontsize-selector > span {
         font-size: 1.25em;
         white-space: nowrap;
         padding-right: 0.35em;
@@ -58,9 +58,9 @@
         cursor: default;
     }
 
-    .fontsize-selector>input[type=number]::-webkit-inner-spin-button {
+    .fontsize-selector > input[type="number"]::-webkit-inner-spin-button {
         /* background: none;
-        opacity: 1; */
+            opacity: 1; */
         -webkit-appearance: none;
     }
 </style>
@@ -78,10 +78,10 @@
         },
         methods: {
             changeFontSize() {
-                this.$store.commit("SET_STYLE",{styleName: "font-size", value: this.fontSize})
+                this.$store.commit("SET_STYLE", { styleName: "font-size", value: this.fontSize })
             },
-            async initFontSize(){
-                return await this.$store.dispatch("getStyles", {styleName:"font-size", comp:this})
+            async initFontSize() {
+                return await this.$store.dispatch("getStyles", { styleName: "font-size", comp: this })
             }
         },
         async mounted() {

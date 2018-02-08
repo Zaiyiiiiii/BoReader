@@ -6,13 +6,13 @@
 
     .smooth-scrollbar::-webkit-scrollbar-track {
         border-radius: 2px;
-        background-color: rgba(200, 200, 200, 0);
+        background-color: hsla(0°, 0%, 78.4%, 0);
         transition: all 0.5s;
     }
 
     .smooth-scrollbar:hover::-webkit-scrollbar-track {
         border-radius: 2px;
-        background-color: rgba(200, 200, 200, 0.4);
+        background-color: hsla(0, 0%, 78.4%, 0.4);
     }
 
     .smooth-scrollbar::-webkit-scrollbar-thumb {

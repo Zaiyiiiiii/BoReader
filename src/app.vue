@@ -75,7 +75,7 @@
         padding: 1px;
     }
     .app{
-        background-color: rgba(246, 246, 241, 1);
+        background-color: hsla(60, 21.7%, 95.5%, 1);
         position: relative;
         padding: 1px;
         border: 0;
