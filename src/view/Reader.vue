@@ -153,7 +153,8 @@
                         this.setStyle(book)
                         updateBook(book)
                     }
-                    else {//if (mutation.type == "SET_LASTREAD") {
+                    //if (mutation.type == "SET_LASTREAD") {
+                    else {
                         let book = state.reader.book
                         updateBook(book)
                     }
