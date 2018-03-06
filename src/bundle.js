@@ -44822,7 +44822,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n.fontsize-selector {\n    -webkit-app-region: no-drag;\n    height: 100%;\n    width: 140px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-end;\n    overflow: visible;\n    padding-right: 20px;\n    box-sizing: border-box;\n    background: linear-gradient(\n        to right,\n        hsla(0, 0, 98%, 0),\n        hsla(0, 0, 98%, 0.6) 18%,\n        hsla(0, 0, 98%, 0.9) 60%,\n        hsla(0, 0, 98%, 1)\n    );\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n.fontsize-selector > * {\n    color: #7e8282;\n    font-family: \"default\";\n    font-weight: lighter;\n}\n.fontsize-selector > input {\n    font-size: 1.15em;\n    height: 100%;\n    width: 1.85em;\n    outline: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    background: none;\n    text-align: right;\n    /* text-decoration-line: underline; */\n}\n.fontsize-selector > span {\n    font-size: 1.25em;\n    white-space: nowrap;\n    padding-right: 0.35em;\n    text-shadow: 20px 0px rgba(246, 246, 241, 1);\n    user-select: none;\n    cursor: default;\n}\n.fontsize-selector > input[type=\"number\"]::-webkit-inner-spin-button {\n    /* background: none;\n        opacity: 1; */\n    -webkit-appearance: none;\n}\n", ""]);
+exports.push([module.i, "\n.fontsize-selector {\n    -webkit-app-region: no-drag;\n    height: 100%;\n    width: 140px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-end;\n    overflow: visible;\n    padding-right: 20px;\n    box-sizing: border-box;\n    background: linear-gradient(\n        to right,\n        rgba(250, 250, 250, 0),\n        rgba(250, 250, 250, 0.6) 18%,\n        rgba(250, 250, 250, 0.9) 60%,\n        rgba(250, 250, 250, 1)\n    );\n    position: absolute;\n    top: 0;\n    right: 0;\n}\n.fontsize-selector > * {\n    color: #7e8282;\n    font-family: \"default\";\n    font-weight: lighter;\n}\n.fontsize-selector > input {\n    font-size: 1.15em;\n    height: 100%;\n    width: 1.85em;\n    outline: none;\n    border: none;\n    padding: 0;\n    margin: 0;\n    background: none;\n    text-align: right;\n    /* text-decoration-line: underline; */\n}\n.fontsize-selector > span {\n    font-size: 1.25em;\n    white-space: nowrap;\n    padding-right: 0.35em;\n    text-shadow: 20px 0px rgba(246, 246, 241, 1);\n    user-select: none;\n    cursor: default;\n}\n.fontsize-selector > input[type=\"number\"]::-webkit-inner-spin-button {\n    /* background: none;\n        opacity: 1; */\n    -webkit-appearance: none;\n}\n", ""]);
 
 // exports
 
@@ -44948,7 +44948,7 @@ exports = module.exports = __webpack_require__(11)(undefined);
 
 
 // module
-exports.push([module.i, "\n.content {\n    position: fixed;\n    right: 60px;\n    top: 1px;\n    height: calc(100% - 2px);\n    width: 320px;\n    background: red;\n    opacity: 1;\n    -webkit-app-region: no-drag;\n    padding: 2em 0 0 2em;\n    overflow-x: hidden;\n    overflow-y: auto;\n    background: linear-gradient(\n        to left,\n        rgba(250, 250, 250, 0),\n        rgba(240, 240, 235, 0.95) 30px,\n        rgba(240, 240, 235, 0.95)\n    );\n    box-shadow: -2px 0 1px 1px rgba(100, 100, 100, 0.05);\n}\n", ""]);
+exports.push([module.i, "\n.content {\n    position: fixed;\n    right: 60px;\n    top: 1px;\n    height: calc(100% - 2px);\n    width: 320px;\n    opacity: 1;\n    -webkit-app-region: no-drag;\n    padding: 2em 0 0 2em;\n    overflow-x: hidden;\n    overflow-y: auto;\n    background: linear-gradient(\n        to left,\n        rgba(250, 250, 250, 0),\n        rgba(240, 240, 235, 0.95) 30px,\n        rgba(240, 240, 235, 0.95)\n    );\n    box-shadow: -2px 0 1px 1px rgba(100, 100, 100, 0.05);\n}\n", ""]);
 
 // exports
 
@@ -85496,7 +85496,8 @@ if (false) {(function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__buttons_LineHeightButton_vue__ = __webpack_require__(601);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__buttons_toLib_vue__ = __webpack_require__(603);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__buttons_Content_vue__ = __webpack_require__(598);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__mixins_hover_vue__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__buttons_Bookmark_vue__ = __webpack_require__(672);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__mixins_hover_vue__ = __webpack_require__(207);
 //
 //
 //
@@ -85557,6 +85558,7 @@ if (false) {(function () {
 //
 //
 //
+
 
 
 
@@ -85573,7 +85575,7 @@ if (false) {(function () {
             staticButtons: ["exit", "max"],
         }
     },
-    mixins: [__WEBPACK_IMPORTED_MODULE_6__mixins_hover_vue__["a" /* default */]],
+    mixins: [__WEBPACK_IMPORTED_MODULE_7__mixins_hover_vue__["a" /* default */]],
     computed: {
         routeButtons() {
             return this.$route.meta.sideBarButtons
@@ -85593,7 +85595,8 @@ if (false) {(function () {
         "font-size": __WEBPACK_IMPORTED_MODULE_2__buttons_FontSizeButton_vue__["a" /* default */],
         "line-height": __WEBPACK_IMPORTED_MODULE_3__buttons_LineHeightButton_vue__["a" /* default */],
         "to-lib": __WEBPACK_IMPORTED_MODULE_4__buttons_toLib_vue__["a" /* default */],
-        "toc": __WEBPACK_IMPORTED_MODULE_5__buttons_Content_vue__["a" /* default */]
+        "toc": __WEBPACK_IMPORTED_MODULE_5__buttons_Content_vue__["a" /* default */],
+        "bookmark": __WEBPACK_IMPORTED_MODULE_6__buttons_Bookmark_vue__["a" /* default */]
     },
     mounted() {
         this.computeHeight()
@@ -87107,6 +87110,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("base-button", {
+    staticStyle: { "z-index": "5" },
     attrs: { icon: "../static/lib.svg" },
     on: { click: _vm.toLib }
   })
@@ -88760,7 +88764,7 @@ module.exports = {"name":"Bo.","current_version":"Blast Observer","author":"Zaiy
         meta:{
           title:"加载中...",
           sideBarButtons:[
-            "font-size","line-height","toc","to-lib"
+            "font-size","line-height","toc","bookmark","to-lib"
           ]
         }
       }
@@ -88983,6 +88987,190 @@ module.exports = require("tty");
 
 module.exports = __webpack_require__(216);
 
+
+/***/ }),
+/* 671 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.content {\n    position: fixed;\n    right: 60px;\n    top: 1px;\n    height: calc(100% - 2px);\n    width: 320px;\n    opacity: 1;\n    -webkit-app-region: no-drag;\n    padding: 2em 0 0 2em;\n    overflow-x: hidden;\n    overflow-y: auto;\n    background: linear-gradient(\n        to left,\n        rgba(250, 250, 250, 0),\n        rgba(240, 240, 235, 0.95) 30px,\n        rgba(240, 240, 235, 0.95)\n    );\n    box-shadow: -2px 0 1px 1px rgba(100, 100, 100, 0.05);\n}\n.bookmark-add{\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    width: 100%;\n    height: 50px;\n    background: red\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 672 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Bookmark_vue__ = __webpack_require__(673);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2966f6cc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Bookmark_vue__ = __webpack_require__(674);
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(675)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+
+/* template */
+
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __WEBPACK_IMPORTED_MODULE_0__node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_Bookmark_vue__["a" /* default */],
+  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_2966f6cc_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_Bookmark_vue__["a" /* default */],
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "src\\components\\buttons\\Bookmark.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2966f6cc", Component.options)
+  } else {
+    hotAPI.reload("data-v-2966f6cc", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+
+
+/***/ }),
+/* 673 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__TocItem_vue__ = __webpack_require__(597);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HoverShowButton_vue__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_SmoothScroll_vue__ = __webpack_require__(206);
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+    data() {
+        return {
+            toc: []
+        }
+    },
+    mixins: [__WEBPACK_IMPORTED_MODULE_2__mixins_SmoothScroll_vue__["a" /* default */]],
+    created() {
+        this.$bus.on("tocMessage", (e) => {
+            console.log(e)
+            if (e) {
+                this.toc = e.toc
+            }
+        })
+    },
+    activated() {
+        console.log("书签组件激活")
+    },
+    destroy() {
+        this.$bus.off()
+    },
+    components: {
+        "hovershow-button": __WEBPACK_IMPORTED_MODULE_1__HoverShowButton_vue__["a" /* default */],
+        "toc-item": __WEBPACK_IMPORTED_MODULE_0__TocItem_vue__["a" /* default */]
+    },
+    methods: {
+        getToc() {
+            this.$bus.emit("requestBookmarks")
+        },
+        sendRedirectRequest(cfi) {
+            this.$bus.emit("redirectReaderByCFI", { cfi: cfi })
+        }
+    }
+});    
+
+
+/***/ }),
+/* 674 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "hovershow-button",
+    {
+      attrs: { icon: "../static/bookmark.svg", hideIcon: false },
+      on: { hoverin: _vm.getToc }
+    },
+    [
+      _c("div", { staticClass: "content smooth-scrollbar" }, [
+        _c("div", { staticClass: "bookmark-add" })
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+var esExports = { render: render, staticRenderFns: staticRenderFns }
+/* harmony default export */ __webpack_exports__["a"] = (esExports);
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2966f6cc", esExports)
+  }
+}
+
+/***/ }),
+/* 675 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(671);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("0701bd25", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2966f6cc\",\"scoped\":false,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./Bookmark.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2966f6cc\",\"scoped\":false,\"hasInlineConfig\":false}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./Bookmark.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

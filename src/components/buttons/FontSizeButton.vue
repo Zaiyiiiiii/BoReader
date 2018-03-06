@@ -20,10 +20,10 @@
         box-sizing: border-box;
         background: linear-gradient(
             to right,
-            hsla(0, 0, 98%, 0),
-            hsla(0, 0, 98%, 0.6) 18%,
-            hsla(0, 0, 98%, 0.9) 60%,
-            hsla(0, 0, 98%, 1)
+            rgba(250, 250, 250, 0),
+            rgba(250, 250, 250, 0.6) 18%,
+            rgba(250, 250, 250, 0.9) 60%,
+            rgba(250, 250, 250, 1)
         );
         position: absolute;
         top: 0;

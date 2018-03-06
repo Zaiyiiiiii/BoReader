@@ -65,6 +65,7 @@
     import lineHeightButton from './buttons/LineHeightButton.vue'
     import toLib from './buttons/toLib.vue'
     import content from './buttons/Content.vue'
+    import bookmark from './buttons/Bookmark.vue'
     import Hover from '../mixins/hover.vue'
 
     export default {
@@ -94,7 +95,8 @@
             "font-size": fontSizeButton,
             "line-height": lineHeightButton,
             "to-lib": toLib,
-            "toc": content
+            "toc": content,
+            "bookmark": bookmark
         },
         mounted() {
             this.computeHeight()

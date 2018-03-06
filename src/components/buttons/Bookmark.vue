@@ -1,7 +1,8 @@
 <template>
-    <hovershow-button icon="../static/content.svg" :hideIcon="false" @hoverin="getToc">
+    <hovershow-button icon="../static/bookmark.svg" :hideIcon="false" @hoverin="getToc">
         <div class="content smooth-scrollbar">
-            <toc-item @tocclick="sendRedirectRequest" v-for="(item,index) in toc" :toc="item" :key="index"></toc-item>
+            <!-- <toc-item @tocclick="sendRedirectRequest" v-for="(item,index) in toc" :toc="item" :key="index"></toc-item> -->
+            <div class="bookmark-add"></div>
         </div>
     </hovershow-button>
 </template>
@@ -25,7 +26,7 @@
             })
         },
         activated() {
-            console.log("Toc组件激活")
+            console.log("书签组件激活")
         },
         destroy() {
             this.$bus.off()
@@ -36,7 +37,7 @@
         },
         methods: {
             getToc() {
-                this.$bus.emit("requestCurrentToc")
+                this.$bus.emit("requestBookmarks")
             },
             sendRedirectRequest(cfi) {
                 this.$bus.emit("redirectReaderByCFI", { cfi: cfi })
@@ -63,6 +64,14 @@
             rgba(240, 240, 235, 0.95)
         );
         box-shadow: -2px 0 1px 1px rgba(100, 100, 100, 0.05);
+    }
+    .bookmark-add{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: red
     }
 </style>
 

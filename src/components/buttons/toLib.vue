@@ -1,5 +1,5 @@
 <template>
-    <base-button @click="toLib" icon="../static/lib.svg"></base-button>
+    <base-button style="z-index:5" @click="toLib" icon="../static/lib.svg"></base-button>
 </template>
 <script>
 import baseButton from '../StandardButton.vue'
