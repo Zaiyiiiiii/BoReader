@@ -3,10 +3,13 @@ const state = {
 }
 
 const getters = {
+    bookmarks() {
+        return state.book.bookmark ? state.book.bookmark : []
+    }
 }
 
 const actions = {
-    getStyles({ state }, {styleName, comp}) {
+    getStyles({ state }, { styleName, comp }) {
         if (state.book.config && state.book.config[styleName]) {
             return state.book.config[styleName]
         }
@@ -21,8 +24,8 @@ const actions = {
             //     return result
             // }
             // else {
-                return false
-                // 导入默认值
+            return false
+            // 导入默认值
             // }
         }
     }
@@ -32,17 +35,26 @@ const actions = {
 const mutations = {
     SET_BOOK(state, { book }) {
         state.book = book
-        Object.assign(state.book,{})
+        Object.assign(state.book, {})
     },
     SET_STYLE(state, { styleName, value }) {
-        if(!state.book.config){
+        if (!state.book.config) {
             state.book.config = {}
         }
         state.book.config[styleName] = value
-        Object.assign(state.book.config,{})
+        Object.assign(state.book.config, {})
     },
     SET_LASTREAD(state, { cfi }) {
         state.book.lastRead = cfi
+    },
+    ADD_BOOKMARK(state, { cfi }) {
+        state.book.bookmark.push({ cfi: cfi, time: new Date() })
+    },
+    DELETE_BOOKMARK(state, { time }) {
+        let index = state.book.bookmark.findIndex((item) => {
+            item.time = time
+        })
+        state.book.bookmark.splice(index, 1)
     }
 }
 

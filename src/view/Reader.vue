@@ -22,11 +22,11 @@
     }
 
     /* .buttonlist{
-                                    flex: 0;
-                                    bottom: 2em;
-                                    left: 2em;
-                                    -webkit-app-region: no-drag;
-                                } */
+                                                                            flex: 0;
+                                                                            bottom: 2em;
+                                                                            left: 2em;
+                                                                            -webkit-app-region: no-drag;
+                                                                        } */
 
     .reader {
         max-width: 100%;
@@ -60,10 +60,24 @@
                 console.log("收到toc请求")
                 this.$bus.emit("tocMessage", { toc: this.book ? this.book.toc : [] })
             })
-            this.$bus.on("redirectReaderByCFI",(message)=>{
-                console.log("可以",message)
-                if(this.book){
+            this.$bus.on("redirectReaderByCFI", (message) => {
+                console.log("可以", message)
+                if (this.book) {
                     this.book.gotoCfi(message.cfi)
+                }
+            })
+            this.$bus.on("requestBookmarks", () => {
+                console.log("可以", this.$store)
+                this.$bus.emit("bookmarkMessage", { bookmarks: this.$store.getters.bookmarks })
+            })
+            this.$bus.on("addBookmark", () => {
+                if (this.book) {
+                    this.$store.commit("ADD_BOOKMARK", { cfi: this.book.getCurrentLocationCfi() })
+                }
+            })
+            this.$bus.on("deleteBookmark", ({ time }) => {
+                if (this.book) {
+                    this.$store.commit("DELETE_BOOKMARK", { time: time })
                 }
             })
         },
@@ -139,7 +153,7 @@
                         this.setStyle(book)
                         updateBook(book)
                     }
-                    else if (mutation.type == "SET_LASTREAD") {
+                    else {//if (mutation.type == "SET_LASTREAD") {
                         let book = state.reader.book
                         updateBook(book)
                     }

@@ -1,27 +1,31 @@
 <template>
-    <hovershow-button icon="../static/bookmark.svg" :hideIcon="false" @hoverin="getToc">
-        <div class="content smooth-scrollbar">
-            <!-- <toc-item @tocclick="sendRedirectRequest" v-for="(item,index) in toc" :toc="item" :key="index"></toc-item> -->
-            <div class="bookmark-add"></div>
+    <hovershow-button icon="../static/bookmark.svg" :hideIcon="false" @hoverin="getBookmarks">
+        <div class="bookmark-content">
+            <div class="bookmark-items smooth-scrollbar">
+                <bookmark-item @bookmarkdelete="deleteBookmark(item.time)" @bookmarkclick="sendRedirectRequest" v-for="(item,index) in bookmarks" :bookmark="item" :key="index"></bookmark-item>
+            </div>
+            <div class="bookmark-add" @click="addBookmark">
+                添加书签
+            </div>
         </div>
     </hovershow-button>
 </template>
 <script>
-    import TocItem from '../TocItem.vue'
+    import BookmarkItem from '../BookmarkItem.vue'
     import HoverShowButton from '../HoverShowButton.vue'
     import SmoothScroll from "../../mixins/SmoothScroll.vue"
     export default {
         data() {
             return {
-                toc: []
+                bookmarks: []
             }
         },
         mixins: [SmoothScroll],
         created() {
-            this.$bus.on("tocMessage", (e) => {
+            this.$bus.on("bookmarkMessage", (e) => {
                 console.log(e)
                 if (e) {
-                    this.toc = e.toc
+                    this.bookmarks = e.bookmarks
                 }
             })
         },
@@ -33,11 +37,17 @@
         },
         components: {
             "hovershow-button": HoverShowButton,
-            "toc-item": TocItem
+            "bookmark-item": BookmarkItem
         },
         methods: {
-            getToc() {
+            getBookmarks() {
                 this.$bus.emit("requestBookmarks")
+            },
+            addBookmark() {
+                this.$bus.emit("addBookmark")
+            },
+            deleteBookmark(time) {
+                this.$bus.emit("deleteBookmark", { time: time })
             },
             sendRedirectRequest(cfi) {
                 this.$bus.emit("redirectReaderByCFI", { cfi: cfi })
@@ -46,17 +56,16 @@
     }    
 </script>
 <style>
-    .content {
+    .bookmark-content {
         position: fixed;
         right: 60px;
         top: 1px;
         height: calc(100% - 2px);
-        width: 320px;
+        width: 240px;
         opacity: 1;
         -webkit-app-region: no-drag;
         padding: 2em 0 0 2em;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden;
         background: linear-gradient(
             to left,
             rgba(250, 250, 250, 0),
@@ -65,13 +74,25 @@
         );
         box-shadow: -2px 0 1px 1px rgba(100, 100, 100, 0.05);
     }
-    .bookmark-add{
-        position: absolute;
-        bottom: 0;
-        left: 0;
+    .bookmark-items {
+        overflow-x: hidden;
+        overflow-y: auto;
         width: 100%;
-        height: 50px;
-        background: red
+        height: calc(100% - 74px - 2em);
+        padding-bottom: 1.5em;
+    }
+    .bookmark-add {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        width: calc(100% - 4px);
+        height: 40px;
+        box-shadow: 0px -2px 2px 1px hsla(0, 0%, 20%, 0.06);
+        text-align: center;
+        line-height: 48px;
+        font-family: "default";
+        color: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
     }
 </style>
 
