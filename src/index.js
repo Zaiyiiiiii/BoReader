@@ -7,6 +7,8 @@ import store from './store/index.js'
 import App from './app.vue'
 import { DB, defaultName } from './BookOps'
 
+let Ob
+
 DB.init()
 
 Vue.use(VueRouter)
@@ -26,7 +28,7 @@ Vue.use(VueBus);
 var UIFont = new FontFace("default", "url(../static/fonts/SourceHanSansSC-Light.otf)", {});
 UIFont.load().then(function (loadedFace) {
   document.fonts.add(loadedFace);
-  new Vue({
+  Ob = new Vue({
     el: '#app',
     components: { app: App },
     router,

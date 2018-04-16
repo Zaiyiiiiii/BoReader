@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Bo</title>
-    <link rel="stylesheet" href="./style/main.css">
-  </head>
-  <script src="../node_modules/jszip/dist/jszip.min.js">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bo</title>
+  <link rel="stylesheet" href="./style/main.css">
+</head>
+<script src="../node_modules/jszip/dist/jszip.min.js">
+</script>
+
+<script src="../static/epub.min.js"></script>
+<script src="../static/epub.hooks.js"></script>
+
+<body>
+  <div id="app">
+    <app></app>
+  </div>
+  <script type="text/javascript" src="./bundle.js" charset="utf-8"></script>
+  <script>
+    document.querySelector('body').ondragstart = (event) => {
+      console.log(event)
+      event.preventDefault()
+      ipcRenderer.send('ondragstart', '/path/to/item')
+    }
   </script>
-  
-  <script src="../static/epub.min.js"></script>
-  <script src="../static/epub.hooks.js"></script>
-  <body>
-    <div id="app">
-        <app></app>
-    </div>
-    <script type="text/javascript" src="./bundle.js" charset="utf-8"></script>
-  </body>
+</body>
+
 </html>

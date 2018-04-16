@@ -8,6 +8,11 @@ app.on("window-all-closed", () => {
     app.quit()
 })
 
+app.on("open-file", event => {
+    console.log("打开文件", event)
+    mainWindow.webContents.send()
+})
+
 app.on("ready", () => {
     mainWindow = new BrowserWindow({
         width: 1024,
@@ -19,7 +24,7 @@ app.on("ready", () => {
     //添加VueDevtools
     // const extension = `${__dirname}/node_modules/vue-devtools/vender`
     // BrowserWindow.addDevToolsExtension(extension)
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools()
 
     mainWindow.loadURL(`file://${__dirname}/src/index.html`)
 
