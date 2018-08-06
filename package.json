@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@reactivex/rxjs": "^5.5.1",
+    "cnpm": "^6.0.0",
     "epub.js": "^0.2.15",
     "jsmediatags": "^3.8.1",
     "jszip": "^2.5.0",

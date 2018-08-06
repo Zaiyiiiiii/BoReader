@@ -5,7 +5,7 @@
                 <bookmark-item @bookmarkdelete="deleteBookmark(item.time)" @bookmarkclick="sendRedirectRequest" v-for="(item,index) in bookmarks" :bookmark="item" :key="index"></bookmark-item>
             </div>
             <div class="bookmark-add" @click="addBookmark">
-                添加书签
+                <div>添加书签</div>
             </div>
         </div>
     </hovershow-button>
@@ -87,12 +87,19 @@
         left: 0;
         width: calc(100% - 4px);
         height: 40px;
-        box-shadow: 0px -2px 2px 1px hsla(0, 0%, 20%, 0.06);
         text-align: center;
         line-height: 48px;
         font-family: "default";
         color: rgba(0, 0, 0, 0.6);
         cursor: pointer;
+        text-align: center
+    }
+    .bookmark-add>div{
+        border-top: 1px solid hsla(0, 0%, 20%, 0.06);
+        display: inline-block;
+        height: 100%;
+        font-family: "default";
+        width: 90%
     }
 </style>
 
