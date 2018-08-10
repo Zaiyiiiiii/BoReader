@@ -20,7 +20,7 @@ export default new VueRouter({
         meta:{
           title:"加载中...",
           sideBarButtons:[
-            "font-size","line-height","toc","bookmark","to-lib"
+            "font-size","line-height","toc","bookmark","read-progress","to-lib"
           ]
         }
       }

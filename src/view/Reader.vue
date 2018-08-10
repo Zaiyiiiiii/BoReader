@@ -22,11 +22,11 @@
     }
 
     /* .buttonlist{
-                                                                            flex: 0;
-                                                                            bottom: 2em;
-                                                                            left: 2em;
-                                                                            -webkit-app-region: no-drag;
-                                                                        } */
+                                                                                                                        flex: 0;
+                                                                                                                        bottom: 2em;
+                                                                                                                        left: 2em;
+                                                                                                                        -webkit-app-region: no-drag;
+                                                                                                                    } */
 
     .reader {
         max-width: 100%;
@@ -80,13 +80,26 @@
                     this.$store.commit("DELETE_BOOKMARK", { time: time })
                 }
             })
+            this.$bus.on("getProgress", () => {
+                if (this.book) {
+                    let currentCfi = this.book.getCurrentLocationCfi()
+                    this.$bus.emit("currentProgress", { total: this.book.pagination.lastPage, current: this.book.pagination.pageFromCfi(currentCfi) })
+                }
+            })
+            this.$bus.on("changePage", (page) => {
+                if (this.book) {
+                    let cfi = this.book.pagination.cfiFromPage(page)
+                    this.book.gotoCfi(cfi)
+                }
+            })
         },
         destroy() {
             this.$bus.off()
         },
         data() {
             return {
-                book: null
+                book: null,
+                paginationLoaded: false
             }
         },
         beforeDestroy() {
@@ -104,6 +117,8 @@
             this.book.setStyle("font-family", "defaultText")
             this.book.setStyle("background-color", "rgba(0,0,0,0)")
 
+            this.generatePages()
+
             if (this.book) {
                 this.setStyle(this.$store.state.reader.book)
             }
@@ -118,6 +133,13 @@
 
             this.$el.addEventListener('wheel', this.keyEvent, false)
             document.addEventListener('keydown', this.keyEvent, false)
+
+            Rx.Observable.fromEvent(window, 'resize')
+                .debounceTime(1000)
+                .subscribe((event) => {
+                    this.generatePages()
+                })
+
             this.book.on("renderer:keydown", _this.keyEvent.bind(_this))
 
             //初始化store监听
@@ -142,16 +164,28 @@
             // 初始化阅读位置自动保存
             this.book.on('renderer:locationChanged', (location) => {
                 this.$store.commit("SET_LASTREAD", { cfi: location })
+                if (this.paginationLoaded) {
+                    this.$bus.emit("getProgress")
+                }
             })
 
         },
         methods: {
+            generatePages() {
+                this.paginationLoaded = false
+                this.$bus.emit("currentProgress", {})
+                this.book.generatePagination().then(() => {
+                    this.paginationLoaded = true
+                    this.$bus.emit("getProgress")
+                })
+            },
             syncStore(mutation, state) {
                 if (this.$route.path == "/reader") {
                     if (mutation.type == "SET_STYLE") {
                         let book = state.reader.book
                         this.setStyle(book)
                         updateBook(book)
+                        this.generatePages()
                     }
                     //if (mutation.type == "SET_LASTREAD") {
                     else {

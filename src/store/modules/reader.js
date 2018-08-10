@@ -9,6 +9,7 @@ const getters = {
 }
 
 const actions = {
+    // getPage
     getStyles({ state }, { styleName, comp }) {
         if (state.book.config && state.book.config[styleName]) {
             return state.book.config[styleName]
